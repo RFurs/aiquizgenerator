@@ -23,9 +23,3 @@
  */
 
 defined('MOODLE_INTERNAL') || die();
-
-function xmldb_local_moodle_local_plugin_upgrade($oldversion) {
-    // Upgrade code goes here.
-    global $CFG, $DB;
-    return true;
-}

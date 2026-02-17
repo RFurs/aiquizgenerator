@@ -23,7 +23,3 @@
  */
 
 defined('MOODLE_INTERNAL') || die();
-
-function xmldb_local_moodle_local_plugin_uninstall() {
-    // Uninstallation code goes here
-}

@@ -23,7 +23,3 @@
  */
 
 defined('MOODLE_INTERNAL') || die();
-
-function xmldb_moodle_local_plugin_install() {
-    // Installation code goes here
-}
