@@ -47,7 +47,7 @@ function local_aiquizgenerator_extend_navigation_course(
     );
 
     $navigation->add(
-        get_string('pluginname', 'local_aiquizgenerator'),
+        get_string('quizgenerator', 'local_aiquizgenerator'),
         $url,
         navigation_node::TYPE_CUSTOM,
         null,

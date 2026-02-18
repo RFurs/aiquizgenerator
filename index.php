@@ -21,33 +21,33 @@
  * @copyright  2026 Renat Furs <fursrenat@gmail.com>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
+
 require('../../config.php');
 
 defined('MOODLE_INTERNAL') || die();
 
 $courseid = required_param('courseid', PARAM_INT);
-
 $course = get_course($courseid);
-
 $context = context_course::instance($courseid);
-
 require_login($course);
+require_capability('local/aiquizgenerator:generate', $context);
 
-require_capability(
-    'local/aiquizgenerator:generate',
-    $context
-);
-
-$PAGE->set_url('/local/aiquizgenerator/index.php', ['courseid' => $courseid]);
-
+$PAGE->set_url(new moodle_url('/local/aiquizgenerator/index.php', ['courseid' => $courseid]));
+$PAGE->set_context($context);
 $PAGE->set_pagelayout('standard');
-
-$PAGE->set_title(get_string('pluginname', 'local_aiquizgenerator'));
-
+$PAGE->set_title(get_string('quizgenerator', 'local_aiquizgenerator'));
 $PAGE->set_heading($course->fullname);
 
+$mform = new \local_aiquizgenerator\form\generator_form();
+
+if ($data = $mform->get_data()) {
+    // Calling an AI API)
+    // ... logic here ...
+
+    redirect(new moodle_url('/course/view.php', ['id' => $courseid]), 'Quiz generated successfully!');
+}
 echo $OUTPUT->header();
 
-echo "<h2>AI Quiz Generator will be here.</h2>";
+$mform->display();
 
 echo $OUTPUT->footer();
