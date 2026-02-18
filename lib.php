@@ -25,11 +25,32 @@
 defined('MOODLE_INTERNAL') || die();
 
 /**
- * Upgrade function for local_aiquizgenerator
+ * Extend course navigation to add AI Quiz Generator link.
  *
- * @param int $oldversion
- * @return bool
+ * @param navigation_node $navigation
+ * @param stdClass $course
+ * @param context_course $context
  */
-function xmldb_local_aiquizgenerator_upgrade($oldversion) {
-    return true;
+function local_aiquizgenerator_extend_navigation_course(
+    navigation_node $navigation,
+    stdClass $course,
+    context_course $context
+) {
+
+    if (!has_capability('local/aiquizgenerator:generate', $context)) {
+        return;
+    }
+
+    $url = new moodle_url(
+        '/local/aiquizgenerator/index.php',
+        ['courseid' => $course->id]
+    );
+
+    $navigation->add(
+        get_string('pluginname', 'local_aiquizgenerator'),
+        $url,
+        navigation_node::TYPE_CUSTOM,
+        null,
+        'local_aiquizgenerator'
+    );
 }

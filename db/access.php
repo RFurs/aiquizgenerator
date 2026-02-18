@@ -23,3 +23,16 @@
  */
 
 defined('MOODLE_INTERNAL') || die();
+
+$capabilities = [
+    'local/aiquizgenerator:generate' => [
+        'riskbitmask' => RISK_SPAM | RISK_XSS,
+        'captype' => 'write',
+        'contextlevel' => CONTEXT_COURSE,
+        'archetypes' => [
+            'teacher' => CAP_ALLOW,
+            'editingteacher' => CAP_ALLOW,
+            'manager' => CAP_ALLOW,
+        ],
+    ],
+];

@@ -23,3 +23,8 @@
  */
 
 defined('MOODLE_INTERNAL') || die();
+
+$string['generate'] = 'Generate Questions';
+$string['nocapability'] = 'You do not have permission to generate questions.';
+$string['pluginname'] = 'AI Quiz Generator';
+$string['topic'] = 'Topic';

@@ -23,14 +23,29 @@
  */
 require('../../config.php');
 
-require_login();
+$courseid = required_param('courseid', PARAM_INT);
 
-$PAGE->set_url('/local/aiquizgenerator/index.php');
+$course = get_course($courseid);
+
+$context = context_course::instance($courseid);
+
+require_login($course);
+
+require_capability(
+    'local/aiquizgenerator:generate',
+    $context
+);
+
+$PAGE->set_url('/local/aiquizgenerator/index.php', ['courseid' => $courseid]);
+
+$PAGE->set_pagelayout('standard');
+
 $PAGE->set_title(get_string('pluginname', 'local_aiquizgenerator'));
-$PAGE->set_heading(get_string('pluginname', 'local_aiquizgenerator'));
+
+$PAGE->set_heading($course->fullname);
 
 echo $OUTPUT->header();
 
-echo "AI Quiz Generator will be here.";
+echo "<h2>AI Quiz Generator will be here.</h2>";
 
 echo $OUTPUT->footer();
