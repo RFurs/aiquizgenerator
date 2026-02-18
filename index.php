@@ -23,6 +23,8 @@
  */
 require('../../config.php');
 
+defined('MOODLE_INTERNAL') || die();
+
 $courseid = required_param('courseid', PARAM_INT);
 
 $course = get_course($courseid);
