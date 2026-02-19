@@ -40,14 +40,26 @@ $PAGE->set_heading($course->fullname);
 
 $mform = new \local_aiquizgenerator\form\generator_form();
 
-if ($data = $mform->get_data()) {
-    // Calling an AI API)
-    // ... logic here ...
+$mform->set_data(['courseid' => $courseid]);
 
-    redirect(new moodle_url('/course/view.php', ['id' => $courseid]), 'Quiz generated successfully!');
+if ($mform->is_cancelled()) {
+    redirect(new moodle_url('/course/view.php', ['id' => $courseid]));
+}
+
+$quizcontent = null;
+
+if ($data = $mform->get_data()) {
+    try {
+        $generator = new \local_aiquizgenerator\generator();
+        $quizcontent = $generator->generate_quiz_content($data, $context->id);
+        // Vėliau pridėti išsaugojimą į klausimų banką.
+        // $message = get_string('generatedsuccessfully', 'local_aiquizgenerator');
+        // redirect(new moodle_url('/course/view.php', ['id' => $courseid]), $message, null, \core\output\notification::NOTIFY_SUCCESS);
+    } catch (\Exception $e) {
+        \core\notification::error($e->getMessage());
+    }
 }
 echo $OUTPUT->header();
-
+echo html_writer::tag('pre', s($quizcontent));
 $mform->display();
-
 echo $OUTPUT->footer();

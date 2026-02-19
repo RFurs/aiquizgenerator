@@ -24,6 +24,13 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['aigenerationerror'] = 'Nepavyko sugeneruoti viktorinos. Galimos priežastys:
+<ul>
+    <li>DI teikėjas arba veiksmas "Generuoti tekstą" yra išjungti.</li>
+    <li>Neteisingas API raktas arba norektiška endpoint konfigūracija.</li>
+    <li>Pasiektas API kvotos limitas.</li>
+</ul>
+Detalesnis klaidos aprašymas: {$a}';
 $string['aiquizgenerator'] = 'DI viktorinų generatorius';
 $string['analyze'] = 'Analizuoti';
 $string['apply'] = 'Taikyti';
@@ -33,10 +40,12 @@ $string['comparch'] = 'Kompiuterių architektūra';
 $string['cpp'] = 'C++';
 $string['create'] = 'Kurti';
 $string['dsa'] = 'Duomenų struktūros ir algoritmai';
+$string['generatedsuccessfully'] = 'Moodle viktorina buvo sėkmingai sugeneruota';
 $string['generatequiz'] = 'Generuoti viktoriną';
 $string['java'] = 'Java';
 $string['numberofquestions'] = 'Klausimų skaičius';
 $string['numofquestrestriction'] = 'Šis laukas leidžia įvesti nuo 1 iki 50 klausimų';
+$string['prompt'] = 'Sukurk viktoriną iš dalyko {$a->subject}. Tema: {$a->topic}. Klausimų skaičius: {$a->count}. Blumo taksonomijos lygis: {$a->level}. Formatas: Moodle XML.';
 $string['quizgenerator'] = 'Viktorinų generatorius';
 $string['quizsubject'] = 'Studijų dalykas';
 $string['quiztopic'] = 'Viktorinos tema';

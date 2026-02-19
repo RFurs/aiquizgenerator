@@ -24,6 +24,13 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['aigenerationerror'] = 'Quiz generation failed. This might be due to:
+<ul>
+    <li>The AI provider or "Generate text" action is disabled.</li>
+    <li>Invalid AI API key or incorrect endpoint configuration.</li>
+    <li>API quota limits reached.</li>
+</ul>
+Detailed error: {$a}';
 $string['aiquizgenerator'] = 'AI Quiz Generator';
 $string['analyze'] = 'Analyze';
 $string['apply'] = 'Apply';
@@ -33,10 +40,12 @@ $string['comparch'] = 'Computer Architecture';
 $string['cpp'] = 'C++';
 $string['create'] = 'Create';
 $string['dsa'] = 'Data Structures and Algorithms';
+$string['generatedsuccessfully'] = 'Moodle quiz was generated successfully';
 $string['generatequiz'] = 'Generate Quiz';
 $string['java'] = 'Java';
 $string['numberofquestions'] = 'Number Of Questions';
 $string['numofquestrestriction'] = 'This field allows numbers from 1 to 50';
+$string['prompt'] = 'Create a quiz about {$a->subject}. Topic: {$a->topic}. Number of questions: {$a->count}. Bloom taxonomy level: {$a->level}. Format: Moodle XML.';
 $string['quizgenerator'] = 'Quiz Generator';
 $string['quizsubject'] = 'Quiz Subject';
 $string['quiztopic'] = 'Quiz Topic';
