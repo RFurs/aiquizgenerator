@@ -51,15 +51,17 @@ $quizcontent = null;
 if ($data = $mform->get_data()) {
     try {
         $generator = new \local_aiquizgenerator\generator();
+        $importer = new \local_aiquizgenerator\xml_importer();
+
         $quizcontent = $generator->generate_quiz_content($data, $context->id);
-        // Vėliau pridėti išsaugojimą į klausimų banką.
-        // $message = get_string('generatedsuccessfully', 'local_aiquizgenerator');
-        // redirect(new moodle_url('/course/view.php', ['id' => $courseid]), $message, null, \core\output\notification::NOTIFY_SUCCESS);
+        $importer->import_to_question_bank($quizcontent, $courseid);
+        $message = get_string('generatedsuccessfully', 'local_aiquizgenerator');
+        $selfurl = new moodle_url('/local/aiquizgenerator/index.php', ['courseid' => $courseid]);
+        redirect($selfurl, $message, null, \core\output\notification::NOTIFY_SUCCESS);
     } catch (\Exception $e) {
         \core\notification::error($e->getMessage());
     }
 }
 echo $OUTPUT->header();
-echo html_writer::tag('pre', s($quizcontent));
 $mform->display();
 echo $OUTPUT->footer();

@@ -52,7 +52,6 @@ class generator_form extends \moodleform {
         $mform->addElement('text', 'topic', get_string('quiztopic', 'local_aiquizgenerator'), ['size' => '50']);
         $mform->setType('topic', PARAM_TEXT);
         $mform->addRule('topic', get_string('topicisrequired', 'local_aiquizgenerator'), 'required', null, 'client');
-        $mform->addRule('topic', get_string('topiclettersonly', 'local_aiquizgenerator'), 'lettersonly', null, 'client');
 
         $mform->addElement('text', 'questioncount', get_string('numberofquestions', 'local_aiquizgenerator'));
         $mform->setType('questioncount', PARAM_INT);
@@ -70,6 +69,7 @@ class generator_form extends \moodleform {
             'understand' => get_string('understand', 'local_aiquizgenerator'),
             'apply' => get_string('apply', 'local_aiquizgenerator'),
             'analyze' => get_string('analyze', 'local_aiquizgenerator'),
+            'evaluate' => get_string('evaluate', 'local_aiquizgenerator'),
             'create' => get_string('create', 'local_aiquizgenerator'),
         ];
         $mform->addElement(

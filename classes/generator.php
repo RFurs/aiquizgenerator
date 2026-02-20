@@ -58,7 +58,7 @@ class generator {
             throw new \moodle_exception('aigenerationerror', 'local_aiquizgenerator', '', $response->get_errormessage());
         }
 
-        return $response->get_response_data()['generatedcontent'] ?? '';
+        return $this->cleanup_response($response->get_response_data()['generatedcontent'] ?? '');
     }
 
     /**
@@ -72,5 +72,30 @@ class generator {
         $a->level   = $data->cognitive_difficulty;
 
         return get_string('prompt', 'local_aiquizgenerator', $a);
+    }
+
+    /**
+     * Cleans up AI response to extract pure Moodle XML.
+     *
+     * @param string $content Raw AI response.
+     * @return string Clean XML content.
+     */
+    private function cleanup_response(string $content): string {
+        $content = preg_replace('/```xml\s*/i', '', $content);
+        $content = preg_replace('/```/', '', $content);
+
+        $xmlstart = strpos($content, '<?xml');
+        if ($xmlstart === false) {
+            $xmlstart = strpos($content, '<quiz');
+        }
+
+        if ($xmlstart !== false) {
+            $content = substr($content, $xmlstart);
+            $xmlend = strrpos($content, '</quiz>');
+            if ($xmlend !== false) {
+                $content = substr($content, 0, $xmlend + 7);
+            }
+        }
+        return trim($content);
     }
 }
