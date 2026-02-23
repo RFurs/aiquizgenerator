@@ -38,7 +38,7 @@ $PAGE->set_pagelayout('standard');
 $PAGE->set_title(get_string('quizgenerator', 'local_aiquizgenerator'));
 $PAGE->set_heading($course->fullname);
 
-$mform = new \local_aiquizgenerator\form\generator_form();
+$mform = new \local_aiquizgenerator\form\generator_form(null, ['courseid' => $courseid]);
 
 $mform->set_data(['courseid' => $courseid]);
 
@@ -54,7 +54,7 @@ if ($data = $mform->get_data()) {
         $importer = new \local_aiquizgenerator\xml_importer();
 
         $quizcontent = $generator->generate_quiz_content($data, $context->id);
-        $importer->import_to_question_bank($quizcontent, $courseid);
+        $importer->import_to_question_bank($quizcontent, $courseid, $data->category);
         $message = get_string('generatedsuccessfully', 'local_aiquizgenerator');
         $selfurl = new moodle_url('/local/aiquizgenerator/index.php', ['courseid' => $courseid]);
         redirect($selfurl, $message, null, \core\output\notification::NOTIFY_SUCCESS);

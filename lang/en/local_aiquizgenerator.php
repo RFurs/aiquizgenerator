@@ -35,6 +35,7 @@ $string['aiquizgenerator'] = 'AI Quiz Generator';
 $string['analyze'] = 'Analyze';
 $string['apply'] = 'Apply';
 $string['c'] = 'C';
+$string['category'] = 'Category';
 $string['cognitivedifficulty'] = 'Cognitive Difficulty';
 $string['comparch'] = 'Computer Architecture';
 $string['cpp'] = 'C++';
