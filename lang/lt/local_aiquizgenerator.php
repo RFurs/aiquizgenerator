@@ -36,7 +36,7 @@ $string['analyze'] = 'Analizuoti';
 $string['apply'] = 'Taikyti';
 $string['c'] = 'C';
 $string['category'] = 'Kategorija';
-$string['cognitivedifficulty'] = 'Kognityvinis sudėtingumas';
+$string['cognitivedifficulty'] = 'Kognityv. sudėtingumas';
 $string['comparch'] = 'Kompiuterių architektūra';
 $string['cpp'] = 'C++';
 $string['create'] = 'Kurti';
@@ -48,7 +48,54 @@ $string['importfailed'] = 'Nepavyko importuoti klausimų, galimai dėl neteising
 $string['java'] = 'Java';
 $string['numberofquestions'] = 'Klausimų skaičius';
 $string['numofquestrestriction'] = 'Šis laukas leidžia įvesti nuo 1 iki 50 klausimų';
-$string['prompt'] = 'Sukurk viktoriną iš dalyko {$a->subject}. Tema: {$a->topic}. Klausimų skaičius: {$a->count}. Blumo taksonomijos lygis: {$a->level}. Formatas: Moodle XML.';
+$string['prompt'] = 'Sukurk viktoriną iš dalyko {$a->subject}. Tema: {$a->topic}. Klausimų skaičius: {$a->count}. Blumo taksonomijos lygis: {$a->level}. Formatas: JSON. Tavo išvestis turi atitikti tokią struktūrą:
+{
+	"questions": [
+		{
+			"name": "Funkcijos grąžinamos reikšmės tipas",
+			"questiontext": "Pagal nutylėjimą kokio duomenų tipo reikšmę grąžina funkcija",
+			"questiontype": "multichoice",
+			"code": "",
+			"answers": [
+				{
+					"text": "int",
+					"fraction": 100
+				},
+				{
+					"text": "void",
+					"fraction": 0
+				},
+				{
+					"text": "bool",
+					"fraction": 0
+				},
+				{
+					"text": "Pagal nutylėjimą funkcijos C programavimo kalboje nieko negrąžina",
+					"fraction": 0
+				}
+			]
+		},
+		{
+			"name": "Didžiausio elemento masyve radimas",
+			"questiontext": "Parašykite funkciją kuri randa didžiausio elemento indeksą sveikųjų skaičių masyve. Pavyzdys:",
+			"questiontype": "essay",
+			"code": "int arr[] = {-5, 10, 3, 10, 2};\\n int idx = max(arr, 5);\\n // Result: idx = 1",
+			"answers": []
+		},
+		{
+			"name": "Parametrų perdavimas pagal reikšmę",
+			"questiontext": "Išanalizuokite žemiau pateiktus kodo fragmentus ir nurodykite programos išvestį",
+			"questiontype": "shortanswer",
+			"code": "#include <stdio.h>\\n void swap(int a, int b) {\\n int t = a; a = b; b = t;\\n}\\n int main(void) {\\n int x = 3, y = 7;\\n swap(x, y);\\n printf(\"%d %d\\n\", x, y);\\n return 0;\\n}",
+			"answers": [
+				{
+					"text": "3 7",
+					"fraction": 100
+				}
+			]
+		}
+	]
+}';
 $string['quizgenerator'] = 'Viktorinų generatorius';
 $string['quizsubject'] = 'Studijų dalykas';
 $string['quiztopic'] = 'Viktorinos tema';

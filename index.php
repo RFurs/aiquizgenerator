@@ -51,10 +51,12 @@ $quizcontent = null;
 if ($data = $mform->get_data()) {
     try {
         $generator = new \local_aiquizgenerator\generator();
+        $formatconverter = new \local_aiquizgenerator\format_converter();
         $importer = new \local_aiquizgenerator\xml_importer();
 
-        $quizcontent = $generator->generate_quiz_content($data, $context->id);
-        $importer->import_to_question_bank($quizcontent, $courseid, $data->category);
+        $jsoncontent = $generator->generate_quiz_content($data, $context->id);
+        $xmlcontent = $formatconverter->convert_json_to_xml($jsoncontent);
+        $importer->import_to_question_bank($xmlcontent, $courseid, $data->category);
         $message = get_string('generatedsuccessfully', 'local_aiquizgenerator');
         $selfurl = new moodle_url('/local/aiquizgenerator/index.php', ['courseid' => $courseid]);
         redirect($selfurl, $message, null, \core\output\notification::NOTIFY_SUCCESS);

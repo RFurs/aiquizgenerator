@@ -75,27 +75,23 @@ class generator {
     }
 
     /**
-     * Cleans up AI response to extract pure Moodle XML.
+     * Cleans up AI response to extract pure JSON content.
      *
      * @param string $content Raw AI response.
-     * @return string Clean XML content.
+     * @return string Clean JSON string.
      */
     private function cleanup_response(string $content): string {
-        $content = preg_replace('/```xml\s*/i', '', $content);
-        $content = preg_replace('/```/', '', $content);
-
-        $xmlstart = strpos($content, '<?xml');
-        if ($xmlstart === false) {
-            $xmlstart = strpos($content, '<quiz');
+        if (preg_match('/```(?:json)?\s*(.*?)\s*```/is', $content, $matches)) {
+            $content = $matches[1];
         }
 
-        if ($xmlstart !== false) {
-            $content = substr($content, $xmlstart);
-            $xmlend = strrpos($content, '</quiz>');
-            if ($xmlend !== false) {
-                $content = substr($content, 0, $xmlend + 7);
-            }
+        $start = strpos($content, '{');
+        $end = strrpos($content, '}');
+
+        if ($start !== false && $end !== false) {
+            $content = substr($content, $start, $end - $start + 1);
         }
+
         return trim($content);
     }
 }
