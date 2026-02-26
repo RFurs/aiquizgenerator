@@ -1,0 +1,52 @@
+{
+    "questions": [
+        {
+            "name": "C funkcijos – grąžinimo tipas pagal nutylėjimą",
+            "questiontext": "Koks yra funkcijos grąžinamų duomenų tipas pagal nutylėjimą C programavimo kalboje?",
+            "questiontype": "multichoice",
+            "code": "",
+            "answers": [
+                {
+                    "text": "int",
+                    "fraction": 100
+                },
+                {
+                    "text": "void",
+                    "fraction": 0
+                },
+                {
+                    "text": "bool",
+                    "fraction": 0
+                },
+                {
+                    "text": "Pagal nutylėjimą funkcijos nieko negrąžina",
+                    "fraction": 0
+                }
+            ]
+        },
+        {
+            "name": "C funkcijos – funkcijos prototipas",
+            "questiontext": "Kas yra funkcijos prototipas?",
+            "questiontype": "multichoice",
+            "code": "",
+            "answers": [
+                {
+                    "text": "Funkcijos kūnas, kuriame yra vykdomieji sakiniai",
+                    "fraction": 0
+                },
+                {
+                    "text": "Funkcijos deklaracija, nurodanti jos pavadinimą, grąžinimo tipą ir parametrus",
+                    "fraction": 100
+                },
+                {
+                    "text": "Bendrosios paskirties funkcija, esanti standartinėje C bibliotekoje",
+                    "fraction": 0
+                },
+                {
+                    "text": "Funkcija, kuri dar nėra visiškai įgyvendinta (implementuota)",
+                    "fraction": 0
+                }
+            ]
+        }
+    ]
+}

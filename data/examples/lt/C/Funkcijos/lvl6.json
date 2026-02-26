@@ -1,0 +1,18 @@
+{
+  "questions": [
+    {
+      "name": "C Functions - Palindrome",
+      "questiontext": "Design and implement a user-defined function in C that determines whether a given string is a palindrome. A palindrome is a string that reads the same forward and backward. <br>Example:",
+      "questiontype": "essay",
+      "code": "char a[] = \"level\";\nisPalindrome(a) // Result: true",
+      "answers": []
+    },
+    {
+      "name": "C Functions - Armstrong number",
+      "questiontext": "Design and implement a user-defined function in C that determines whether a given integer number is an Armstrong number. An Armstrong number is a number that is equal to the sum of the cubes of its digits. <br>Example:",
+      "questiontype": "essay",
+	  "code": "int n = 153;\nisArmstrong(n) // Result: true",
+      "answers": []
+    }
+  ]
+}

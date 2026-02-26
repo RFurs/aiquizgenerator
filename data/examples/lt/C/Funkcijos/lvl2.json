@@ -1,0 +1,76 @@
+{
+    "questions": [
+        {
+            "name": "C funkcijos – funkcijos prototipas",
+            "questiontext": "Išanalizuokite žemiau pateiktą kodo fragmentą ir pasirinkite teisingus teiginius",
+            "questiontype": "multichoice",
+            "code": "void fun(int, char, char[]);",
+            "answers": [
+                {
+                    "text": "Funkcija nieko negrąžina",
+                    "fraction": 50
+                },
+                {
+                    "text": "Funkcija grąžina void duomenų tipą",
+                    "fraction": -50
+                },
+                {
+                    "text": "Funkcija gali turėti return sakinį",
+                    "fraction": 50
+                },
+                {
+                    "text": "Funkcija negali turėti return sakinio",
+                    "fraction": -50
+                }
+            ]
+        },
+        {
+            "name": "C funkcijos – funkcijos parametrai",
+            "questiontext": "Išanalizuokite žemiau pateiktą kodo fragmentą ir pasirinkite teisingus funkcijos iškvietimus",
+            "questiontype": "multichoice",
+            "code": "void fun(int, char, char[]);",
+            "answers": [
+                {
+                    "text": "fun(0,0,0);",
+                    "fraction": 25
+                },
+                {
+                    "text": "fun(1,'1',\"1\");",
+                    "fraction": 25
+                },
+                {
+                    "text": "fun('2',2,\"2\");",
+                    "fraction": 25
+                },
+                {
+                    "text": "fun('a','a',\"a\");",
+                    "fraction": 25
+                }
+            ]
+        },
+        {
+            "name": "C funkcijos – funkcijos antraštė",
+            "questiontext": "Kurie sakiniai teisingai apibrėžia funkcijos antraštę?",
+            "questiontype": "multichoice",
+            "code": "",
+            "answers": [
+                {
+                    "text": "void fun(0)",
+                    "fraction": -50
+                },
+                {
+                    "text": "int fun",
+                    "fraction": -50
+                },
+                {
+                    "text": "void fun(void)",
+                    "fraction": 50
+                },
+                {
+                    "text": "int fun(int, int)",
+                    "fraction": 50
+                }
+            ]
+        }
+    ]
+}

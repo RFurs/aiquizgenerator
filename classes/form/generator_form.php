@@ -92,9 +92,9 @@ class generator_form extends \moodleform {
             'C' => get_string('c', 'local_aiquizgenerator'),
             'C++' => get_string('cpp', 'local_aiquizgenerator'),
             'Java' => get_string('java', 'local_aiquizgenerator'),
-            'Data Structures and Algorithms' =>
+            'Data structures and algorithms' =>
                 get_string('dsa', 'local_aiquizgenerator'),
-            'Computer Architecture' =>
+            'Computer architecture' =>
                 get_string('comparch', 'local_aiquizgenerator'),
         ];
 

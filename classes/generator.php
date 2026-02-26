@@ -43,7 +43,8 @@ class generator {
     public function generate_quiz_content(\stdClass $data, int $contextid): string {
         global $USER;
 
-        $prompt = $this->build_prompt($data);
+        $promptbuilder = new prompt_builder();
+        $prompt = $promptbuilder->build($data);
 
         $action = new \core_ai\aiactions\generate_text(
             contextid: $contextid,
@@ -59,19 +60,6 @@ class generator {
         }
 
         return $this->cleanup_response($response->get_response_data()['generatedcontent'] ?? '');
-    }
-
-    /**
-     * Function building a prompt using data received from form.
-     */
-    protected function build_prompt(\stdClass $data): string {
-        $a = new \stdClass();
-        $a->subject = $data->subject;
-        $a->topic   = $data->topic;
-        $a->count   = $data->questioncount;
-        $a->level   = $data->cognitive_difficulty;
-
-        return get_string('prompt', 'local_aiquizgenerator', $a);
     }
 
     /**

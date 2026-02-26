@@ -42,60 +42,14 @@ $string['cpp'] = 'C++';
 $string['create'] = 'Create';
 $string['dsa'] = 'Data Structures and Algorithms';
 $string['evaluate'] = 'Evaluate';
+$string['examplesprefix'] = 'Example:';
 $string['generatedsuccessfully'] = 'Moodle quiz was generated successfully';
 $string['generatequiz'] = 'Generate Quiz';
 $string['importfailed'] = 'Quiz importing failed supposedly due to invalid XML structure. Please try again.';
 $string['java'] = 'Java';
 $string['numberofquestions'] = 'Number Of Questions';
 $string['numofquestrestriction'] = 'This field allows numbers from 1 to 50';
-$string['prompt'] = 'Create a quiz about {$a->subject}. Topic: {$a->topic}. Number of questions: {$a->count}. Bloom taxonomy level: {$a->level}. Format: JSON. Follow this structure:
-{
-	"questions": [
-		{
-			"name": "Function return type by default",
-			"questiontext": "What is the default return data type of a function in the C programming language?",
-			"questiontype": "multichoice",
-			"code": "",
-			"answers": [
-				{
-					"text": "int",
-					"fraction": 100
-				},
-				{
-					"text": "void",
-					"fraction": 0
-				},
-				{
-					"text": "bool",
-					"fraction": 0
-				},
-				{
-					"text": "By default functions in C programming language do not return value",
-					"fraction": 0
-				}
-			]
-		},
-		{
-			"name": "Finding the largest element in the array",
-			"questiontext": "Write a function that finds the largest element\'s index in a whole numbers array. Example:",
-			"questiontype": "essay",
-			"code": "int arr[] = {-5, 10, 3, 10, 2};\\n int idx = max(arr, 5);\\n // Result: idx = 1",
-			"answers": []
-		},
-		{
-			"name": "Passing arguments by value",
-			"questiontext": "Analyze the code fragments provided below and enter the program\'s output",
-			"questiontype": "shortanswer",
-			"code": "#include <stdio.h>\\n void swap(int a, int b) {\\n int t = a; a = b; b = t;\\n}\\n int main(void) {\\n int x = 3, y = 7;\\n swap(x, y);\\n printf(\"%d %d\\n\", x, y);\\n return 0;\\n}",
-			"answers": [
-				{
-					"text": "3 7",
-					"fraction": 100
-				}
-			]
-		}
-	]
-}';
+$string['prompt'] = 'Create a quiz about {$a->subject}. Topic: {$a->topic}. Number of questions: {$a->count}. Bloom taxonomy level: {$a->level}. Format: JSON. Generated questions should be of similar complexity and structure to provided in example.';
 $string['quizgenerator'] = 'Quiz Generator';
 $string['quizsubject'] = 'Quiz Subject';
 $string['quiztopic'] = 'Quiz Topic';

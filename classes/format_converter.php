@@ -35,7 +35,7 @@ class format_converter {
      * @param string $jsoncontent Clean JSON.
      * @return string Generated XML content.
      */
-    public function convert_json_to_xml($jsoncontent): string {
+    public function convert_json_to_xml(string $jsoncontent): string {
         $data = json_decode($jsoncontent, true);
         if (!$data || !isset($data['questions'])) {
             return '';
