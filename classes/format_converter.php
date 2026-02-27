@@ -34,11 +34,12 @@ class format_converter {
      *
      * @param string $jsoncontent Clean JSON.
      * @return string Generated XML content.
+     * @throws \moodle_exception
      */
     public function convert_json_to_xml(string $jsoncontent): string {
         $data = json_decode($jsoncontent, true);
         if (!$data || !isset($data['questions'])) {
-            return '';
+            throw new \moodle_exception('invalidjsonresponse', 'local_aiquizgenerator');
         }
 
         $dom = new \DOMDocument('1.0', 'UTF-8');
@@ -56,7 +57,7 @@ class format_converter {
 
             $qtext = $q['questiontext'];
             if (!empty($q['code'])) {
-                $qtext .= '<br><pre><code>' . htmlspecialchars($q['code']) . '</code></pre>';
+                $qtext .= '<br><br><pre><code>' . htmlspecialchars($q['code']) . '</code></pre>';
             }
 
             $questiontext = $dom->createElement('questiontext');

@@ -53,16 +53,19 @@ class xml_importer {
         $filename = tempnam($CFG->tempdir, 'ai_import');
         file_put_contents($filename, $xmlcontent);
 
-        $qformat = new \qformat_xml();
-        $qformat->setCategory($DB->get_record('question_categories', ['id' => $categoryid]));
-        $qformat->setCourse($DB->get_record('course', ['id' => $courseid]));
-        $qformat->setFilename($filename);
-
-        ob_start();
-        $status = $qformat->importprocess();
-        ob_end_clean();
-
-        unlink($filename);
+        try {
+            $qformat = new \qformat_xml();
+            $qformat->setCategory($DB->get_record('question_categories', ['id' => $categoryid]));
+            $qformat->setCourse($DB->get_record('course', ['id' => $courseid]));
+            $qformat->setFilename($filename);
+            ob_start();
+            $status = $qformat->importprocess();
+            ob_end_clean();
+        } finally {
+            if (file_exists($filename)) {
+                unlink($filename);
+            }
+        }
 
         if (!$status) {
             throw new \moodle_exception('importfailed', 'local_aiquizgenerator');

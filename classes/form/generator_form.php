@@ -122,6 +122,14 @@ class generator_form extends \moodleform {
             'client'
         );
 
+        $mform->addRule(
+            'topic',
+            get_string('topicisnotvalid', 'local_aiquizgenerator'),
+            'regex',
+            '/^(?!default$)[\p{L}]+([\s\p{L}]+)?$/u',
+            'client'
+        );
+
         $mform->addElement(
             'text',
             'questioncount',
