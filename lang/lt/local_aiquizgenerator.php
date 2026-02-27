@@ -58,4 +58,5 @@ $string['remember'] = 'Atsiminti';
 $string['topic'] = 'Tema';
 $string['topicisnotvalid'] = 'Leidžiamos tik raidės ir nematomi simboliai. Taip pat temos pavadinimas negali būti default';
 $string['topicisrequired'] = 'Temos įvedimas yra privalomas';
+$string['topicplaceholder'] = 'Rodyklės';
 $string['understand'] = 'Suprasti';

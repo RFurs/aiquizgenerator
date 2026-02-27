@@ -34,11 +34,11 @@ class xml_importer {
      *
      * @param string $xmlcontent Cleaned up xml content.
      * @param int $courseid Course ID.
-     * @param int $categoryid Category Id (if 0, default category will be chosen).
+     * @param mixed $categoryid Category Id (can be int or string).
      * @return void
      * @throws \moodle_exception
      */
-    public function import_to_question_bank(string $xmlcontent, int $courseid, int $categoryid = 0): void {
+    public function import_to_question_bank(string $xmlcontent, int $courseid, $categoryid = 0): void {
         global $CFG, $DB;
 
         require_once($CFG->dirroot . '/question/format/xml/format.php');

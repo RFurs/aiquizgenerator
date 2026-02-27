@@ -58,4 +58,5 @@ $string['remember'] = 'Remember';
 $string['topic'] = 'Topic';
 $string['topicisnotvalid'] = 'Topic can consist of letters and invisible characters only. The topic also cannot be default';
 $string['topicisrequired'] = 'Topic is required';
+$string['topicplaceholder'] = 'Pointers';
 $string['understand'] = 'Understand';

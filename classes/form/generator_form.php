@@ -33,54 +33,13 @@ require_once($CFG->libdir . '/formslib.php');
  */
 class generator_form extends \moodleform {
     /**
-     * Build category tree for select element.
-     */
-    private function build_category_tree($categories, $parent = 0, $depth = 0) {
-        $result = [];
-        foreach ($categories as $cat) {
-            if ($cat->parent == $parent) {
-                if ($cat->name !== 'top') {
-                    $indent = str_repeat('—', $depth);
-                    if ($depth > 0) {
-                        $indent .= ' ';
-                    }
-                    $result[$cat->id] = $indent . $cat->name;
-                }
-                $result += $this->build_category_tree(
-                    $categories,
-                    $cat->id,
-                    $depth + 1
-                );
-            }
-        }
-        return $result;
-    }
-
-    /**
      * Defining form structure
      */
     public function definition() {
-        global $DB;
-
         $mform = $this->_form;
-
         $courseid = $this->_customdata['courseid'];
         $context = \context_course::instance($courseid);
-
-        $contextids = explode('/', trim($context->path, '/'));
-
-        [$insql, $params] = $DB->get_in_or_equal($contextids);
-
-        $records = $DB->get_records_select(
-            'question_categories',
-            "contextid $insql",
-            $params,
-            'parent, sortorder'
-        );
-
-        $categories = $this->build_category_tree($records);
-
-        $defaultcategory = array_key_first($categories);
+        $contexts = new \core_question\local\bank\question_edit_contexts($context);
 
         $mform->addElement(
             'header',
@@ -177,14 +136,14 @@ class generator_form extends \moodleform {
         );
 
         $mform->addElement(
-            'select',
+            'questioncategory',
             'category',
             get_string('category', 'local_aiquizgenerator'),
-            $categories
+            ['contexts' => $contexts->all()]
         );
 
-        $mform->setDefault('category', $defaultcategory);
-        $mform->setType('category', PARAM_INT);
+        $defaultcategory = \question_get_default_category($context->id);
+        $mform->setDefault('category', $defaultcategory->id);
 
         $mform->addElement('hidden', 'courseid');
         $mform->setDefault('courseid', $courseid);
