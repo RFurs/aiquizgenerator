@@ -23,3 +23,6 @@
  */
 
 defined('MOODLE_INTERNAL') || die();
+
+function xmldb_local_aiquizgenerator_install() {
+}
