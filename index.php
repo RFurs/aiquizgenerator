@@ -27,9 +27,12 @@ require('../../config.php');
 defined('MOODLE_INTERNAL') || die();
 
 $courseid = required_param('courseid', PARAM_INT);
+
 $course = get_course($courseid);
-$context = context_course::instance($courseid);
+
 require_login($course);
+
+$context = context_course::instance($courseid);
 require_capability('local/aiquizgenerator:generate', $context);
 
 $PAGE->set_url(new moodle_url('/local/aiquizgenerator/index.php', ['courseid' => $courseid]));
@@ -38,8 +41,7 @@ $PAGE->set_pagelayout('standard');
 $PAGE->set_title(get_string('quizgenerator', 'local_aiquizgenerator'));
 $PAGE->set_heading($course->fullname);
 
-$mform = new \local_aiquizgenerator\form\generator_form(null, ['courseid' => $courseid]);
-
+$mform = new \local_aiquizgenerator\form\edit(null, ['courseid' => $courseid]);
 $mform->set_data(['courseid' => $courseid]);
 
 if ($mform->is_cancelled()) {
@@ -54,12 +56,14 @@ if ($data = $mform->get_data()) {
         $formatconverter = new \local_aiquizgenerator\format_converter();
         $importer = new \local_aiquizgenerator\xml_importer();
 
-        $jsoncontent = $generator->generate_quiz_content($data, $context->id);
+        $jsoncontent = $generator->generate_quiz($data, $context->id);
         $xmlcontent = $formatconverter->convert_json_to_xml($jsoncontent);
         $importer->import_to_question_bank($xmlcontent, $courseid, $data->category);
+
         $message = get_string('generatedsuccessfully', 'local_aiquizgenerator');
         $selfurl = new moodle_url('/local/aiquizgenerator/index.php', ['courseid' => $courseid]);
         redirect($selfurl, $message, null, \core\output\notification::NOTIFY_SUCCESS);
+
     } catch (\Exception $e) {
         \core\notification::error($e->getMessage());
     }

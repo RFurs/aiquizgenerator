@@ -40,7 +40,7 @@ class generator {
      * @return string Sugeneruotas tekstas.
      * @throws \moodle_exception
      */
-    public function generate_quiz_content(\stdClass $data, int $contextid): string {
+    public function generate_quiz(\stdClass $data, int $contextid): string {
         global $USER;
 
         $promptbuilder = new prompt_builder();
@@ -79,7 +79,6 @@ class generator {
         if ($start !== false && $end !== false) {
             $content = substr($content, $start, $end - $start + 1);
         }
-
         return trim($content);
     }
 }

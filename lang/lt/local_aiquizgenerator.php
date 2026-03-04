@@ -32,6 +32,7 @@ $string['aigenerationerror'] = 'Nepavyko sugeneruoti viktorinos. Galimos prieža
 </ul>
 Detalesnis klaidos aprašymas: {$a}';
 $string['aiquizgenerator'] = 'DI viktorinų generatorius';
+$string['aiquizgenerator:generate'] = 'Sugeneruoti viktoriną';
 $string['analyze'] = 'Analizuoti';
 $string['apply'] = 'Taikyti';
 $string['c'] = 'C';
@@ -48,9 +49,12 @@ $string['generatequiz'] = 'Generuoti viktoriną';
 $string['importfailed'] = 'Nepavyko importuoti klausimų, galimai dėl neteisingos XML struktūros. Prašome pabandyti dar kartą. ';
 $string['invalidjsonresponse'] = 'Modelis sugeneravo nekorektišką JSON. Prašome pabandyti dar kartą.';
 $string['java'] = 'Java';
+$string['jsonexamples'] = 'JSON pavyzdžiai';
 $string['numberofquestions'] = 'Klausimų skaičius';
-$string['numofquestrestriction'] = 'Šis laukas leidžia įvesti nuo 1 iki 50 klausimų';
+$string['numofquestrestriction'] = 'Šis laukas leidžia įvesti nuo 1 iki 30 klausimų';
+$string['pluginname'] = 'AI Quiz Generator';
 $string['prompt'] = 'Sukurk viktoriną iš dalyko {$a->subject}. Tema: {$a->topic}. Klausimų skaičius: {$a->count}. Blumo taksonomijos lygis: {$a->level}. Formatas: JSON. Sugeneruoti klausimai turi būti panašūs į klausimus esančius pavyzdžiuose sudėtingumo ir struktūros atžvilgiu.';
+$string['questionbank'] = 'Klausimų bankas';
 $string['quizgenerator'] = 'Viktorinų generatorius';
 $string['quizsubject'] = 'Studijų dalykas';
 $string['quiztopic'] = 'Viktorinos tema';

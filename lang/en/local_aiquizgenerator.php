@@ -32,6 +32,7 @@ $string['aigenerationerror'] = 'Quiz generation failed. This might be due to:
 </ul>
 Detailed error: {$a}';
 $string['aiquizgenerator'] = 'AI Quiz Generator';
+$string['aiquizgenerator:generate'] = 'Generate a Quiz';
 $string['analyze'] = 'Analyze';
 $string['apply'] = 'Apply';
 $string['c'] = 'C';
@@ -48,9 +49,12 @@ $string['generatequiz'] = 'Generate Quiz';
 $string['importfailed'] = 'Quiz importing failed supposedly due to invalid XML structure. Please try again.';
 $string['invalidjsonresponse'] = 'The model generated an invalid JSON. Please try again.';
 $string['java'] = 'Java';
+$string['jsonexamples'] = 'JSON Examples';
 $string['numberofquestions'] = 'Number Of Questions';
-$string['numofquestrestriction'] = 'This field allows numbers from 1 to 50';
-$string['prompt'] = 'Create a quiz about {$a->subject}. Topic: {$a->topic}. Number of questions: {$a->count}. Bloom taxonomy level: {$a->level}. Format: JSON. Generated questions should be of similar complexity and structure to provided in example.';
+$string['numofquestrestriction'] = 'This field allows numbers from 1 to 30';
+$string['pluginname'] = 'AI Quiz Generator';
+$string['prompt'] = 'Create a quiz about {$a->subject}. Topic: {$a->topic}. Number of questions: {$a->count}. Bloom taxonomy level: {$a->level}. Format: JSON. Generated questions should be of similar complexity and structure to provided ones in the example.';
+$string['questionbank'] = 'Question Bank';
 $string['quizgenerator'] = 'Quiz Generator';
 $string['quizsubject'] = 'Quiz Subject';
 $string['quiztopic'] = 'Quiz Topic';

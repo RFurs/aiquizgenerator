@@ -1,0 +1,48 @@
+/**
+ * JS logic for dynamic topic loading using Vanilla JS.
+ *
+ * @module      local_aiquizgenerator/jsonexamples
+ * @copyright   2026 Renat Furs
+ * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
+define([], function() {
+    return {
+        /**
+         * Initialize the dynamic select logic.
+         *
+         * @param {Object} allTopics The JSON object containing subjects and their topics.
+         */
+        init: function(allTopics) {
+            const subjectSelect = document.getElementById('id_subject');
+            const topicSelect = document.getElementById('id_jsonexamples');
+
+            /**
+             * Populates the topic dropdown based on the selected subject.
+             *
+             * @param {string} subject
+             */
+            const populateTopics = (subject) => {
+                const topics = allTopics[subject] || ['default'];
+
+                topicSelect.innerHTML = '';
+
+                topics.forEach(t => {
+                    const option = new Option(t, t);
+                    topicSelect.add(option);
+                });
+
+                topicSelect.value = 'default';
+
+                topicSelect.dispatchEvent(new Event('change', { bubbles: true }));
+            };
+
+            if (subjectSelect && topicSelect) {
+                populateTopics(subjectSelect.value);
+
+                subjectSelect.addEventListener('change', (e) => {
+                    populateTopics(e.target.value);
+                });
+            }
+        }
+    };
+});

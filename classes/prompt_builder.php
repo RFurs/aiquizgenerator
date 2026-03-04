@@ -31,29 +31,29 @@ defined('MOODLE_INTERNAL') || die();
 class prompt_builder {
     /**
      * Function building a prompt using data received from form.
-     * * @param \stdClass $data The form data (subject, topic, questioncount, cognitive_difficulty)
+     * @param \stdClass $data The form data (subject, topic, questioncount, cognitive_difficulty)
      * @return string The fully constructed prompt
      */
     public function build(\stdClass $data): string {
         $a = new \stdClass();
-        $a->subject = $data->subject;
-        $a->topic   = $data->topic;
-        $a->count   = $data->questioncount;
-        $a->level   = $data->cognitive_difficulty;
+        $a->subject   = $data->subject;
+        $a->topic     = $data->topic;
+        $a->count     = $data->questioncount;
+        $a->level     = $data->cognitive_difficulty;
 
         $prompt = get_string('prompt', 'local_aiquizgenerator', $a);
 
-        $examples = $this->get_examples_json($data);
+        $jsonexamples = $this->get_examples_json($data);
 
-        if (!empty($examples)) {
-            $prompt .= "\n\n" . get_string('examplesprefix', 'local_aiquizgenerator') . "\n" . $examples;
+        if (!empty($jsonexamples)) {
+            $prompt .= "\n\n" . get_string('examplesprefix', 'local_aiquizgenerator') . "\n" . $jsonexamples;
         }
         return $prompt;
     }
 
     /**
      * Locates and reads the appropriate JSON example file based on language, subject, topic, and level.
-     * * @param \stdClass $data
+     * @param \stdClass $data
      * @return string|null JSON content or null if not found.
      */
     protected function get_examples_json(\stdClass $data): ?string {
@@ -65,10 +65,10 @@ class prompt_builder {
         $basepath = $CFG->dirroot . '/local/aiquizgenerator/data/examples/' . $lang;
 
         $subject = $data->subject;
-        $topic   = $data->topic;
+        $examplesname   = $data->jsonexamples;
         $level   = $data->cognitive_difficulty;
 
-        $topicpath = $basepath . '/' . $subject . '/' . $topic;
+        $topicpath = $basepath . '/' . $subject . '/' . $examplesname;
 
         if (!is_dir($topicpath)) {
             $topicpath = $basepath . '/' . $subject . '/default';
