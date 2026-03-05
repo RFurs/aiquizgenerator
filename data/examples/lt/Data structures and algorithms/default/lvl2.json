@@ -1,73 +1,49 @@
 {
     "questions": [
         {
-            "name": "C funkcijos – funkcijos prototipas",
-            "questiontext": "Išanalizuokite žemiau pateiktą kodo fragmentą ir pasirinkite teisingus teiginius",
-            "questiontype": "multichoice",
-            "code": "void fun(int, char, char[]);",
-            "answers": [
-                {
-                    "text": "Funkcija nieko negrąžina",
-                    "fraction": 50
-                },
-                {
-                    "text": "Funkcija grąžina void duomenų tipą",
-                    "fraction": -50
-                },
-                {
-                    "text": "Funkcija gali turėti return sakinį",
-                    "fraction": 50
-                },
-                {
-                    "text": "Funkcija negali turėti return sakinio",
-                    "fraction": -50
-                }
-            ]
-        },
-        {
-            "name": "C funkcijos – funkcijos parametrai",
-            "questiontext": "Išanalizuokite žemiau pateiktą kodo fragmentą ir pasirinkite teisingus funkcijos iškvietimus",
-            "questiontype": "multichoice",
-            "code": "void fun(int, char, char[]);",
-            "answers": [
-                {
-                    "text": "fun(0,0,0);",
-                    "fraction": 25
-                },
-                {
-                    "text": "fun(1,'1',\"1\");",
-                    "fraction": 25
-                },
-                {
-                    "text": "fun('2',2,\"2\");",
-                    "fraction": 25
-                },
-                {
-                    "text": "fun('a','a',\"a\");",
-                    "fraction": 25
-                }
-            ]
-        },
-        {
-            "name": "C funkcijos – funkcijos antraštė",
-            "questiontext": "Kurie sakiniai teisingai apibrėžia funkcijos antraštę?",
+            "name": "DSA - Duomenų struktūros: Steko ir eilės kombinacija",
+            "questiontext": "Turime tuščią steką ir eilę. Atlikite operacijas: stekas.push(10), stekas.push(20), queue.enqueue(stekas.pop()), queue.enqueue(30). Kokia bus eilės priekio reikšmė po šių operacijų?",
             "questiontype": "multichoice",
             "code": "",
             "answers": [
                 {
-                    "text": "void fun(0)",
-                    "fraction": -50
+                    "text": "20",
+                    "fraction": 100
                 },
                 {
-                    "text": "int fun",
-                    "fraction": -50
+                    "text": "10",
+                    "fraction": -100
                 },
                 {
-                    "text": "void fun(void)",
+                    "text": "30",
+                    "fraction": -100
+                },
+                {
+                    "text": "Eilė bus tuščia",
+                    "fraction": -100
+                }
+            ]
+        },
+        {
+            "name": "DSA - Rikiavimo algoritmai: Bubble sort vs Quick sort",
+            "questiontext": "Kurie teiginiai yra teisingi?",
+            "questiontype": "multichoice",
+            "code": "",
+            "answers": [
+                {
+                    "text": "Quicksort algoritmas yra visada efektyvesnis už Bubble sort algoritmą",
+                    "fraction": -100
+                },
+                {
+                    "text": "Egzistuoja atvejai, kai Bubble sort algoritmas yra efektyvesnis už Quicksort algoritmą",
                     "fraction": 50
                 },
                 {
-                    "text": "int fun(int, int)",
+                    "text": "Geriausiu atveju Quicksort algoritmo laiko sudėtingumas yra O(log n)",
+                    "fraction": -100
+                },
+                {
+                    "text": "Geriausiu atveju Bubblesort algoritmo laiko sudėtingumas yra O(n)",
                     "fraction": 50
                 }
             ]

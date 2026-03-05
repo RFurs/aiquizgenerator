@@ -1,52 +1,52 @@
 {
-	"questions": [
-		{
-			"name": "C Functions - default return type",
-			"questiontext": "What is the default return data type of a function in the C programming language",
-			"questiontype": "multichoice",
-			"code": "",
-			"answers": [
-				{
-					"text": "int",
-					"fraction": 100
-				},
-				{
-					"text": "void",
-					"fraction": 0
-				},
-				{
-					"text": "bool",
-					"fraction": 0
-				},
-				{
-					"text": "By default functions in C do not return value",
-					"fraction": 0
-				}
-			]
-		},
-		{
-			"name": "C Functions - function prototype",
-			"questiontext": "What is a function prototype?",
-			"questiontype": "multichoice",
-			"code": "",
-			"answers": [
-				{
-					"text": "The body of a function that contains executable statements",
-					"fraction": 0
-				},
-				{
-					"text": "A declaration of a function that specifies its name, return type, and parameters",
-					"fraction": 100
-				},
-				{
-					"text": "A general-purpose function found in standard C library",
-					"fraction": 0
-				},
-				{
-					"text": "The function which is not fully implemented yet",
-					"fraction": 0
-				}
-			]
-		}
-	]
+    "questions": [
+        {
+            "name": "C++ - OOP: Pure Virtual Function",
+            "questiontext": "How are abstract functions defined in C++?",
+            "questiontype": "multichoice",
+            "code": "",
+            "answers": [
+                {
+                    "text": "virtual void f() = 0;",
+                    "fraction": 100
+                },
+                {
+                    "text": "virtual void f() = NULL;",
+                    "fraction": 0
+                },
+                {
+                    "text": "virtual void f();",
+                    "fraction": 0
+                },
+                {
+                    "text": "abstract void f();",
+                    "fraction": 0
+                }
+            ]
+        },
+        {
+            "name": "C++ - OOP: Abstract Classes and Interfaces",
+            "questiontext": "What is considered an 'interface' in C++?",
+            "questiontype": "multichoice",
+            "code": "",
+            "answers": [
+                {
+                    "text": "A class that only has public fields",
+                    "fraction": 0
+                },
+                {
+                    "text": "A library used for creating graphical user interfaces",
+                    "fraction": 0
+                },
+                {
+                    "text": "An abstract class in which all functions are pure virtual",
+                    "fraction": 100
+                },
+                {
+                    "text": "A special method that provides an interface between one or more classes",
+                    "fraction": 0
+                }
+            ]
+        }
+    ]
 }

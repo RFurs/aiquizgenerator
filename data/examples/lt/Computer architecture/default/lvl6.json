@@ -1,17 +1,17 @@
 {
   "questions": [
     {
-      "name": "C Funkcijos - Palindromas",
-      "questiontext": "Suprojektuokite ir įgyvendinkite funkciją C programavimo kalba, kuri nustatytų ar teksto eilutė yra palindromas. Palindromas yra eilutė, kuri skaitosi vienodai tiek iš dešinės į kairę, tiek iš kairės į dešinę. <br>Pavyzdys:",
+      "name": "Comparch - x86: Simbolių eilutės apvertimas",
+      "questiontext": "Parašykite x86 asemblerio procedūrą, kuri apverstų simbolių eilutę (string) vietoje (in-place), nenaudodama papildomo buferio. Procedūra gauna rodyklę į eilutę per ESI ir jos ilgį per ECX. Naudokite steko mechanizmą arba du rodyklius (head/tail).",
       "questiontype": "essay",
-      "code": "char a[] = \"level\";\nisPalindrome(a) // Result: true",
+      "code": "; Įvestis:\n; ESI = rodyklė į eilutę (pvz., \"Labas\")\n; ECX = eilutės ilgis (pvz., 5)\n\nreverse_string:\n    ; Jūsų kodas čia",
       "answers": []
     },
     {
-      "name": "C Funkcijos - Armstrongo skaičius",
-      "questiontext": "Suprojektuokite ir įgyvendinkite funkciją C programavimo kalba, kuri nustatytų ar natūralusis skaičius yra Armstrongo skaičius. Armstrongo skaičius - tai toks natūralusis skaičius, kurio skaitmenų suma, kiekvieną jų pakėlus skaitmenų kiekio laipsniu, yra lygi pačiam skaičiui. <br>Pavyzdys:",
+      "name": "Comparch - x86: Sąlyginis minimumas be šuolių",
+      "questiontext": "Parašykite kodo fragmentą, kuris į EAX registrą įrašytų mažesnę reikšmę iš dviejų registrų: EAX ir EBX. Nenaudokite jokių sąlyginių šuolių instrukcijų (tokių kaip JLE ar JMP).",
       "questiontype": "essay",
-	    "code": "int n = 153;\nisArmstrong(n) // Result: true, because 153 = 1^3 + 5^3 + 3^3",
+      "code": "; Užduotis: EAX = min(EAX, EBX)\n; Apribojimas: Jokių Jcc instrukcijų.\n\nfind_min:\n    ; Jūsų kodas čia",
       "answers": []
     }
   ]

@@ -1,17 +1,17 @@
 {
   "questions": [
     {
-      "name": "C Functions - Safe division",
-      "questiontext": "Consider the C function provided below. Evaluate this function in terms of correctness and reliability. Propose a modification and justify it.",
+      "name": "Java - OOP: Polymorphism and interface evaluation",
+      "questiontext": "Examine the code below. Evaluate whether the <b>Process</b> class is flexible for adding new types. Suggest a modification and justify it.",
       "questiontype": "essay",
-      "code": "#include <stdio.h>\n\nfloat average(int a, int b) {\n    return (float)(a + b) / (a - b);\n}\n\nint main() {\n    int x = 5, y = 5;\n    printf(\"Average: %.2f\\n\", average(x, y));\n    return 0;\n}",
+      "code": "class Circle {} \nclass Square {}\n\npublic class Process {\n    public void drawShape(Object shape) {\n        if (shape instanceof Circle) {\n            System.out.println(\"Drawing circle\");\n        } else if (shape instanceof Square) {\n            System.out.println(\"Drawing square\");\n        }\n    }\n}",
       "answers": []
     },
     {
-      "name": "C Functions - Infinite recursion",
-      "questiontext": "Consider the C function provided below. Evaluate this function in terms of correctness and reliability. Propose a modification and justify it.",
+      "name": "Java - OOP: NullPointerException risk",
+      "questiontext": "Examine the code below. Evaluate the usage of the <b>name</b> variable in the <b>printDetails</b> method. Assess whether this program is reliable. Suggest a modification and justify it.",
       "questiontype": "essay",
-	  "code": "#include <stdio.h>\n\nint sum(int n) {\n    return n + sum(n - 1);\n}\n\nint main() {\n    int num = 5;\n    printf(\"Suma: %d\\n\", sum(num));\n    return 0;\n}",
+      "code": "class User {\n    static String name;\n\n    public void printDetails() {\n        System.out.println(\"User length: \" + name.length());\n    }\n\n    public static void main(String[] args) {\n        User u = new User();\n        u.printDetails();\n    }\n}",
       "answers": []
     }
   ]

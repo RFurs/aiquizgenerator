@@ -1,17 +1,17 @@
 {
   "questions": [
     {
-      "name": "C Funkcijos - Palindromas",
-      "questiontext": "Suprojektuokite ir įgyvendinkite funkciją C programavimo kalba, kuri nustatytų ar teksto eilutė yra palindromas. Palindromas yra eilutė, kuri skaitosi vienodai tiek iš dešinės į kairę, tiek iš kairės į dešinę. <br>Pavyzdys:",
+      "name": "C - Funkcijos: Anagrama",
+      "questiontext": "Duotos dvi eilutės <b>s1</b> ir <b>s2</b>. Grąžinkite <b>true</b>, jei <b>s1</b> yra <b>s2</b> anagrama, ir <b>false</b> kitu atveju. Anagrama – tai žodis, sudarytas perstatant kito žodžio raides.<br>Pavyzdys:",
       "questiontype": "essay",
-      "code": "char a[] = \"level\";\nisPalindrome(a) // Result: true",
+      "code": "char s1[] = \"act\";\nchar s2[] = \"cat\";\nisAnagram(s1, s2) // Rezultatas: true",
       "answers": []
     },
     {
-      "name": "C Funkcijos - Armstrongo skaičius",
-      "questiontext": "Suprojektuokite ir įgyvendinkite funkciją C programavimo kalba, kuri nustatytų ar natūralusis skaičius yra Armstrongo skaičius. Armstrongo skaičius - tai toks natūralusis skaičius, kurio skaitmenų suma, kiekvieną jų pakėlus skaitmenų kiekio laipsniu, yra lygi pačiam skaičiui. <br>Pavyzdys:",
+      "name": "C - Funkcijos: Armstrongo skaičius",
+      "questiontext": "Duotas sveikasis skaičius <b>n</b>. Parašykite funkciją, kuri grąžina <b>true</b>, jei <b>n</b> yra Armstrongo skaičius, ir <b>false</b> kitu atveju. Natūralusis skaičius vadinamas Armstrongo skaičiumi, jei jis lygus savo skaitmenų, pakeltų laipsniu, lygiu skaitmenų skaičiui, sumai.<br>Pavyzdys:",
       "questiontype": "essay",
-	    "code": "int n = 153;\nisArmstrong(n) // Result: true, because 153 = 1^3 + 5^3 + 3^3",
+      "code": "int n = 153;\nisArmstrong(n) // Rezultatas: true, nes 153 = 1^3 + 5^3 + 3^3",
       "answers": []
     }
   ]

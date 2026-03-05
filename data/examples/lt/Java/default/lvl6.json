@@ -1,17 +1,17 @@
 {
   "questions": [
     {
-      "name": "C Funkcijos - Palindromas",
-      "questiontext": "Suprojektuokite ir įgyvendinkite funkciją C programavimo kalba, kuri nustatytų ar teksto eilutė yra palindromas. Palindromas yra eilutė, kuri skaitosi vienodai tiek iš dešinės į kairę, tiek iš kairės į dešinę. <br>Pavyzdys:",
+      "name": "Java - OOP: Pokerio korta ir kaladė",
+      "questiontext": "Suprojektuokite klasę „Card“, kuri reprezentuotų vieną pokerio kortą. Korta turi turėti suit (mastis: „Hearts“, „Diamonds“, „Clubs“, „Spades“) ir rank (reikšmė: 2-10, „Jack“, „Queen“, „King“, „Ace“). Sukurkite klasę „Deck“, kurioje būtų 52 „Card“ objektų sąrašas (ArrayList). Įgyvendinkite metodą „shuffle()“, kuris atsitiktine tvarka perrikiuotų kortas, ir metodą „dealCard()“, kuris grąžintų (ir pašalintų) vieną kortą iš kaladės.",
       "questiontype": "essay",
-      "code": "char a[] = \"level\";\nisPalindrome(a) // Result: true",
+      "code": "// Pavyzdys:\nDeck deck = new Deck();\ndeck.shuffle();\nCard c = deck.dealCard();\nSystem.out.println(c.toString()); // Pvz: \"Ace of Spades\"",
       "answers": []
     },
     {
-      "name": "C Funkcijos - Armstrongo skaičius",
-      "questiontext": "Suprojektuokite ir įgyvendinkite funkciją C programavimo kalba, kuri nustatytų ar natūralusis skaičius yra Armstrongo skaičius. Armstrongo skaičius - tai toks natūralusis skaičius, kurio skaitmenų suma, kiekvieną jų pakėlus skaitmenų kiekio laipsniu, yra lygi pačiam skaičiui. <br>Pavyzdys:",
+      "name": "Java - OOP: Laiko klasė „Time“",
+      "questiontext": "Sukurkite klasę „Time“, kuri saugotų laiką valandomis, minutėmis ir sekundėmis. Klasė turi užtikrinti duomenų vientisumą (inkapsuliaciją): <br>1. Konstruktorius turi priimti valandas, minutes ir sekundes. Jei paduotos reikšmės neteisingos (pvz., minutės > 59), jos turi būti konvertuojamos (pvz., 70 minučių tampa 1 valanda ir 10 minučių). <br>2. Įgyvendinkite metodą „addSeconds(int s)“, kuris prideda sekundes ir teisingai perskaičiuoja minutes bei valandas. <br>3. Metodas „toString()“ turi grąžinti laiką formatu „HH:MM:SS“.",
       "questiontype": "essay",
-	    "code": "int n = 153;\nisArmstrong(n) // Result: true, because 153 = 1^3 + 5^3 + 3^3",
+      "code": "// Pavyzdys:\nTime t = new Time(23, 59, 50);\nt.addSeconds(15);\nSystem.out.println(t.toString()); // Rezultatas: 00:00:05",
       "answers": []
     }
   ]

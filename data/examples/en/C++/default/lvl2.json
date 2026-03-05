@@ -1,76 +1,52 @@
 {
-	"questions": [
-		{
-			"name": "C Functions - function prototype",
-			"questiontext": "Inspect a code fragment provided below and choose the correct statements",
-			"questiontype": "multichoice",
-			"code": "void fun(int, char, char[]);",
-			"answers": [
-				{
-					"text": "Function does not return anything",
-					"fraction": 50
-				},
-				{
-					"text": "Function returns void datatype",
-					"fraction": -50
-				},
-				{
-					"text": "Function can have return statement",
-					"fraction": 50
-				},
-				{
-					"text": "Function cannot have return statement",
-					"fraction": -50
-				}
-			]
-		},
-		{
-			"name": "C Functions - function parameters",
-			"questiontext": "Inspect a code fragment provided below and choose the correct calls",
-			"questiontype": "multichoice",
-			"code": "void fun(int, char, char[]);",
-			"answers": [
-				{
-					"text": "fun(0,0,0);",
-					"fraction": 25
-				},
-				{
-					"text": "fun(1,'1',\"1\");",
-					"fraction": 25
-				},
-				{
-					"text": "fun('2',2,\"2\");",
-					"fraction": 25
-				},
-				{
-					"text": "fun('a','a',\"a\");",
-					"fraction": 25
-				}
-			]
-		},
-		{
-			"name": "C Functions - function header",
-			"questiontext": "Which sentences may be correct function headers?",
-			"questiontype": "multichoice",
-			"code": "",
-			"answers": [
-				{
-					"text": "void fun(0)",
-					"fraction": -50
-				},
-				{
-					"text": "int fun",
-					"fraction": -50
-				},
-				{
-					"text": "void fun(void)",
-					"fraction": 50
-				},
-				{
-					"text": "int fun(int, int)",
-					"fraction": 50
-				}
-			]
-		}
-	]
+  "questions": [
+    {
+      "name": "C++ - OOP: Analysis of Parameterized Constructor",
+      "questiontext": "Analyze the code snippet below and select the correct statements",
+      "questiontype": "multichoice",
+      "code": "class Point {\npublic:\n    int x, y;\n    Point(int a, int b) {\n        x = a;\n        y = b;\n    }\n};\n\nPoint p(3, 4);",
+      "answers": [
+        {
+          "text": "The object's p members x and y will be 3 and 4 respectively",
+          "fraction": 50
+        },
+        {
+          "text": "The constructor is called with two arguments: 3 and 4",
+          "fraction": 50
+        },
+        {
+          "text": "It is possible to create a Point object without arguments",
+          "fraction": -100
+        },
+        {
+          "text": "The constructor has a return type int",
+          "fraction": -100
+        }
+      ]
+    },
+    {
+      "name": "C++ - OOP: Destructor Invocation Timing",
+      "questiontext": "Analyze the code snippet below and select the correct statements",
+      "questiontype": "multichoice",
+      "code": "#include <iostream>\nusing namespace std;\n\nclass Test {\npublic:\n    ~Test() {\n        cout << \"Destroyed\" << endl;\n    }\n};\n\nint main() {\n    Test t1;\n    {\n        Test t2;\n    }\n    return 0;\n}",
+      "answers": [
+        {
+          "text": "The destructor for object t2 will be called at the end of the inner block",
+          "fraction": 50
+        },
+        {
+          "text": "The destructor for object t1 will be called at the end of the main function",
+          "fraction": 50
+        },
+        {
+          "text": "The destructor is called only at the end of the program for all objects at once",
+          "fraction": -100
+        },
+        {
+          "text": "The destructor can be called manually like a regular function",
+          "fraction": -100
+        }
+      ]
+    }
+  ]
 }

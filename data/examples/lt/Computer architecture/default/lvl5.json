@@ -1,17 +1,17 @@
 {
   "questions": [
     {
-      "name": "C Functions - Safe division",
-      "questiontext": "Consider the C function provided below. Evaluate this function in terms of correctness and reliability. Propose a modification and justify it.",
+      "name": "Comparch - x86: Nulio nustatymo optimizavimas",
+      "questiontext": "Įvertinkite tris pateiktus būdus, kaip nustatyti EAX registro reikšmę į 0. Kuris iš jų yra efektyviausias op-kodo dydžio (op-code length) ir vykdymo greičio atžvilgiu moderniame procesoriuje?",
       "questiontype": "essay",
-      "code": "#include <stdio.h>\n\nfloat average(int a, int b) {\n    return (float)(a + b) / (a - b);\n}\n\nint main() {\n    int x = 5, y = 5;\n    printf(\"Average: %.2f\\n\", average(x, y));\n    return 0;\n}",
+      "code": "// Metodas 1\nMOV EAX, 0\n\n// Metodas 2\nXOR EAX, EAX\n\n// Metodas 3\nAND EAX, 0",
       "answers": []
     },
     {
-      "name": "C Functions - Infinite recursion",
-      "questiontext": "Consider the C function provided below. Evaluate this function in terms of correctness and reliability. Propose a modification and justify it.",
+      "name": "Comparch - x86: Ciklų optimizavimas ir flagai",
+      "questiontext": "Išanalizuokite pateiktą ciklo fragmentą. Įvertinkite, ar šis kodas yra korektiškas ir patikimas. Kas nutiktų, jei kintamasis ECX pradinėje būsenoje būtų lygus 0? Pasiūlykite modifikaciją, kuri užtikrintų programos stabilumą nenumatytais atvejais.",
       "questiontype": "essay",
-	  "code": "#include <stdio.h>\n\nint sum(int n) {\n    return n + sum(n - 1);\n}\n\nint main() {\n    int num = 5;\n    printf(\"Suma: %d\\n\", sum(num));\n    return 0;\n}",
+      "code": "loop_start:\n    ; ... atliekami veiksmai ...\n    DEC ECX\n    JNZ loop_start",
       "answers": []
     }
   ]

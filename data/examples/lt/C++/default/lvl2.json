@@ -1,76 +1,52 @@
 {
-    "questions": [
+  "questions": [
+    {
+      "name": "C++ - Klasės: konstruktoriaus su parametrais analizė",
+      "questiontext": "Išanalizuokite žemiau pateiktą kodo fragmentą ir pasirinkite teisingus teiginius",
+      "questiontype": "multichoice",
+      "code": "class Point {\npublic:\n    int x, y;\n    Point(int a, int b) {\n        x = a;\n        y = b;\n    }\n};\n\nPoint p(3, 4);",
+      "answers": [
         {
-            "name": "C funkcijos – funkcijos prototipas",
-            "questiontext": "Išanalizuokite žemiau pateiktą kodo fragmentą ir pasirinkite teisingus teiginius",
-            "questiontype": "multichoice",
-            "code": "void fun(int, char, char[]);",
-            "answers": [
-                {
-                    "text": "Funkcija nieko negrąžina",
-                    "fraction": 50
-                },
-                {
-                    "text": "Funkcija grąžina void duomenų tipą",
-                    "fraction": -50
-                },
-                {
-                    "text": "Funkcija gali turėti return sakinį",
-                    "fraction": 50
-                },
-                {
-                    "text": "Funkcija negali turėti return sakinio",
-                    "fraction": -50
-                }
-            ]
+          "text": "Objekto p nariai x ir y bus atitinkamai 3 ir 4",
+          "fraction": 50
         },
         {
-            "name": "C funkcijos – funkcijos parametrai",
-            "questiontext": "Išanalizuokite žemiau pateiktą kodo fragmentą ir pasirinkite teisingus funkcijos iškvietimus",
-            "questiontype": "multichoice",
-            "code": "void fun(int, char, char[]);",
-            "answers": [
-                {
-                    "text": "fun(0,0,0);",
-                    "fraction": 25
-                },
-                {
-                    "text": "fun(1,'1',\"1\");",
-                    "fraction": 25
-                },
-                {
-                    "text": "fun('2',2,\"2\");",
-                    "fraction": 25
-                },
-                {
-                    "text": "fun('a','a',\"a\");",
-                    "fraction": 25
-                }
-            ]
+          "text": "Konstruktorius iškviečiamas su dviem argumentais 3 ir 4",
+          "fraction": 50
         },
         {
-            "name": "C funkcijos – funkcijos antraštė",
-            "questiontext": "Kurie sakiniai teisingai apibrėžia funkcijos antraštę?",
-            "questiontype": "multichoice",
-            "code": "",
-            "answers": [
-                {
-                    "text": "void fun(0)",
-                    "fraction": -50
-                },
-                {
-                    "text": "int fun",
-                    "fraction": -50
-                },
-                {
-                    "text": "void fun(void)",
-                    "fraction": 50
-                },
-                {
-                    "text": "int fun(int, int)",
-                    "fraction": 50
-                }
-            ]
+          "text": "Galima sukurti objektą Point be argumentų",
+          "fraction": -100
+        },
+        {
+          "text": "Konstruktorius turi grąžinimo tipą int",
+          "fraction": -100
         }
-    ]
+      ]
+    },
+    {
+      "name": "C++ - Klasės: destruktoriaus iškvietimo momentas",
+      "questiontext": "Išanalizuokite žemiau pateiktą kodo fragmentą ir pasirinkite teisingus teiginius",
+      "questiontype": "multichoice",
+      "code": "#include <iostream>\nusing namespace std;\n\nclass Test {\npublic:\n    ~Test() {\n        cout << \"Destroyed\" << endl;\n    }\n};\n\nint main() {\n    Test t1;\n    {\n        Test t2;\n    }\n    return 0;\n}",
+      "answers": [
+        {
+          "text": "Destruktorius objektui t2 bus iškviestas pasibaigus vidiniam blokui",
+          "fraction": 50
+        },
+        {
+          "text": "Destruktorius objektui t1 bus iškviestas baigiantis funkcijai main",
+          "fraction": 50
+        },
+        {
+          "text": "Destruktorius iškviečiamas tik programos pabaigoje visiems objektams vienu metu",
+          "fraction": -100
+        },
+        {
+          "text": "Destruktorius gali būti iškviestas rankiniu būdu kaip paprasta funkcija",
+          "fraction": -100
+        }
+      ]
+    }
+  ]
 }

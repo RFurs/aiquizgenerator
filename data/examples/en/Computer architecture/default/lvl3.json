@@ -1,25 +1,25 @@
 {
   "questions": [
     {
-      "name": "C Functions - Square of difference between max and min",
-      "questiontext": "Inspect the code provided below. Write a single sentence that assigns to the result variable the square of the difference between the largest and the smallest of the three variables a, b, and c using only the given functions. Your answer should not contain spaces.",
+      "name": "Comparch - Number systems: Converting a Number from Octal to Binary",
+      "questiontext": "Convert the number written in octal notation to binary.",
       "questiontype": "shortanswer",
-      "code": "#include <stdio.h>\n\nint max(int a, int b)\n{\n    if (a > b)\n        return a;\n    return b;\n}\n\nint min(int a, int b)\n{\n    if (a > b)\n        return b;\n    return a;\n}\n\nint square(int x)\n{\n    return x * x;\n}\n\nint main()\n{\n    int a = 3, b = 7, c = 5;\n    int result;\n}",
+      "code": "0721",
       "answers": [
         {
-          "text": "result=square(max(max(a,b),c)-min(min(a,b),c));",
+          "text": "111010001",
           "fraction": 100
         }
       ]
     },
     {
-      "name": "C Functions - Calculating the Hypotenuse",
-      "questiontext": "Inspect the code below. You need to calculate the Hypotenuse of a right-angled triangle using the Pythagorean theorem. Write a single line of code to assign the hypotenuse to result using only the provided functions. Your answer should not contain spaces.",
+      "name": "Comparch - Byte operations: Result of AND Operation",
+      "questiontext": "What is the result of the following AND operation? Provide the result in hexadecimal.",
       "questiontype": "shortanswer",
-      "code": "#include <stdio.h>\n#include <math.h>\n\ndouble get_sqrt(double n) {\n    return sqrt(n);\n}\n\ndouble get_sum(double x, double y) {\n    return x + y;\n}\n\ndouble get_square(double z) {\n    return z * z;\n}\n\nint main() {\n    double a = 3.0, b = 4.0;\n    double result;\n    // Your code here\n}",
+      "code": "8A AND 15",
       "answers": [
         {
-          "text": "result=get_sqrt(get_sum(get_square(a),get_square(b)));",
+          "text": "0",
           "fraction": 100
         }
       ]

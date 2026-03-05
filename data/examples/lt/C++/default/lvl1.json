@@ -1,49 +1,49 @@
 {
     "questions": [
         {
-            "name": "C funkcijos – grąžinimo tipas pagal nutylėjimą",
-            "questiontext": "Koks yra funkcijos grąžinamų duomenų tipas pagal nutylėjimą C programavimo kalboje?",
+            "name": "C++ - OOP: grynai virtuali funkcija",
+            "questiontext": "Kaip C++ kalboje apibrėžiamos abstrakčios funkcijos?",
             "questiontype": "multichoice",
             "code": "",
             "answers": [
                 {
-                    "text": "int",
+                    "text": "virtual void f() = 0;",
                     "fraction": 100
                 },
                 {
-                    "text": "void",
+                    "text": "virtual void f() = NULL;",
                     "fraction": 0
                 },
                 {
-                    "text": "bool",
+                    "text": "virtual void f();",
                     "fraction": 0
                 },
                 {
-                    "text": "Pagal nutylėjimą funkcijos nieko negrąžina",
+                    "text": "abstract void f();",
                     "fraction": 0
                 }
             ]
         },
         {
-            "name": "C funkcijos – funkcijos prototipas",
-            "questiontext": "Kas yra funkcijos prototipas?",
+            "name": "C++ - OOP: abstrakčios klasės ir interfeisai",
+            "questiontext": "Kas C++ kalboje laikoma 'interfeisu'?",
             "questiontype": "multichoice",
             "code": "",
             "answers": [
                 {
-                    "text": "Funkcijos kūnas, kuriame yra vykdomieji sakiniai",
+                    "text": "Klasė, turinti tik public laukus",
                     "fraction": 0
                 },
                 {
-                    "text": "Funkcijos deklaracija, nurodanti jos pavadinimą, grąžinimo tipą ir parametrus",
+                    "text": "Biblioteka, skirta grafinei vartotojo sąsajai kurti",
+                    "fraction": 0
+                },
+                {
+                    "text": "Abstrakti klasė, kurioje visos funkcijos yra grynai virtualios",
                     "fraction": 100
                 },
                 {
-                    "text": "Bendrosios paskirties funkcija, esanti standartinėje C bibliotekoje",
-                    "fraction": 0
-                },
-                {
-                    "text": "Funkcija, kuri dar nėra visiškai įgyvendinta (implementuota)",
+                    "text": "Specialusis metodas, suteikiantis sąsają tarp vienos ar daugiau klasių.",
                     "fraction": 0
                 }
             ]

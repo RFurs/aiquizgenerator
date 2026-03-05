@@ -1,25 +1,37 @@
 {
   "questions": [
     {
-      "name": "C Functions - Mutual recursion output",
-      "questiontext": "Inspect the code provided below. What's the program's output?",
+      "name": "DSA - Asymptotic complexity: Double Loop",
+      "questiontext": "Analyze the code below and indicate its time complexity using Big O notation. Provide your answer in the format O(1), O(n), etc. Your answer should not contain any extra spaces.",
       "questiontype": "shortanswer",
-      "code": "#include <stdio.h>\n\nvoid funcA(int n);\nvoid funcB(int n);\n\nvoid funcA(int n) {\n    if (n <= 0) return;\n    printf(\"%d \", n);\n    funcB(n - 1);\n    printf(\"%d \", n);\n}\n\nvoid funcB(int n) {\n    if (n <= 0) return;\n    printf(\"%d \", n);\n    funcA(n % 2);\n}\n\nint main() {\n    funcA(4);\n    return 0;\n}",
+      "code": "void fun(int n) {\n    for (int i = 0; i < n; i++) {\n        for (int j = i; j < n; j++) {\n            printf(\"*\");\n        }\n    }\n}",
       "answers": [
         {
-          "text": "4 3 1 1 4",
+          "text": "O(n^2)",
           "fraction": 100
         }
       ]
     },
     {
-      "name": "C Functions - Recursive function output",
-      "questiontext": "Inspect the code provided below. What's the program's output?",
+      "name": "DSA - Asymptotic complexity: Logarithmic Growth",
+      "questiontext": "Analyze the code below and indicate its time complexity using Big O notation. Provide your answer in the format O(1), O(n), etc. Your answer should not contain any extra spaces.",
       "questiontype": "shortanswer",
-	  "code": "#include <stdio.h>\n\nint func(int x) {\n    if (x <= 0) return 0;\n    if (x == 1) return 1;\n    return func(x - 2) + func(x - 1);\n}\n\nint main() {\n    printf(\"%d\", func(4));\n    return 0;\n}",
+      "code": "void fun(int n) {\n    int i = 1;\n    while (i < n) {\n        i = i * 2;\n    }\n}",
       "answers": [
         {
-          "text": "3",
+          "text": "O(logn)",
+          "fraction": 100
+        }
+      ]
+    },
+    {
+      "name": "DSA - Asymptotic complexity: Recursive Division",
+      "questiontext": "Analyze the recursive function below and indicate its time complexity using Big O notation. Provide your answer in the format O(n), O(logn), etc. Your answer should not contain any extra spaces.",
+      "questiontype": "shortanswer",
+      "code": "void fun(int n) {\n    if (n <= 1) return;\n    printf(\"%d\", n);\n    recursiveFunc(n / 2);\n}",
+      "answers": [
+        {
+          "text": "O(logn)",
           "fraction": 100
         }
       ]

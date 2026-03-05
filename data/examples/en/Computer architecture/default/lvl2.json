@@ -1,76 +1,52 @@
 {
-	"questions": [
-		{
-			"name": "C Functions - function prototype",
-			"questiontext": "Inspect a code fragment provided below and choose the correct statements",
-			"questiontype": "multichoice",
-			"code": "void fun(int, char, char[]);",
-			"answers": [
-				{
-					"text": "Function does not return anything",
-					"fraction": 50
-				},
-				{
-					"text": "Function returns void datatype",
-					"fraction": -50
-				},
-				{
-					"text": "Function can have return statement",
-					"fraction": 50
-				},
-				{
-					"text": "Function cannot have return statement",
-					"fraction": -50
-				}
-			]
-		},
-		{
-			"name": "C Functions - function parameters",
-			"questiontext": "Inspect a code fragment provided below and choose the correct calls",
-			"questiontype": "multichoice",
-			"code": "void fun(int, char, char[]);",
-			"answers": [
-				{
-					"text": "fun(0,0,0);",
-					"fraction": 25
-				},
-				{
-					"text": "fun(1,'1',\"1\");",
-					"fraction": 25
-				},
-				{
-					"text": "fun('2',2,\"2\");",
-					"fraction": 25
-				},
-				{
-					"text": "fun('a','a',\"a\");",
-					"fraction": 25
-				}
-			]
-		},
-		{
-			"name": "C Functions - function header",
-			"questiontext": "Which sentences may be correct function headers?",
-			"questiontype": "multichoice",
-			"code": "",
-			"answers": [
-				{
-					"text": "void fun(0)",
-					"fraction": -50
-				},
-				{
-					"text": "int fun",
-					"fraction": -50
-				},
-				{
-					"text": "void fun(void)",
-					"fraction": 50
-				},
-				{
-					"text": "int fun(int, int)",
-					"fraction": 50
-				}
-			]
-		}
-	]
+    "questions": [
+        {
+            "name": "Comparch - Computer components: elements that depend on history of inputs",
+            "questiontext": "Which computer elements have outputs that depend not only on the current input values but also on the history of inputs?",
+            "questiontype": "multichoice",
+            "code": "",
+            "answers": [
+                {
+                    "text": "ALU",
+                    "fraction": -100
+                },
+                {
+                    "text": "Data register",
+                    "fraction": 33.33333
+                },
+                {
+                    "text": "Shift register",
+                    "fraction": 33.33333
+                },
+                {
+                    "text": "RS-trigger",
+                    "fraction": 33.33333
+                }
+            ]
+        },
+        {
+            "name": "Comparch - x86: Page Sizes",
+            "questiontext": "Which page sizes are supported by the x86_64 architecture?",
+            "questiontype": "multichoice",
+            "code": "",
+            "answers": [
+                {
+                    "text": "4 Kbyte",
+                    "fraction": 33.33333
+                },
+                {
+                    "text": "2 Mbyte",
+                    "fraction": 33.33333
+                },
+                {
+                    "text": "1 Gbyte",
+                    "fraction": 33.33333
+                },
+                {
+                    "text": "2 Kbyte",
+                    "fraction": -100
+                }
+            ]
+        }
+    ]
 }

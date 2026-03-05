@@ -1,25 +1,25 @@
 {
   "questions": [
     {
-      "name": "C Functions - Square of difference between max and min",
-      "questiontext": "Inspect the code provided below. Write a single sentence that assigns to the result variable the square of the difference between the largest and the smallest of the three variables a, b, and c using only the given functions. Your answer should not contain spaces.",
+      "name": "C++ - OOP: Constructor Initialization List",
+      "questiontext": "Write the missing part of the constructor (initialization list) so that the variable <b>id</b> is assigned the passed value <b>n</b>. Your answer must not contain extra spaces.",
       "questiontype": "shortanswer",
-      "code": "#include <stdio.h>\n\nint max(int a, int b)\n{\n    if (a > b)\n        return a;\n    return b;\n}\n\nint min(int a, int b)\n{\n    if (a > b)\n        return b;\n    return a;\n}\n\nint square(int x)\n{\n    return x * x;\n}\n\nint main()\n{\n    int a = 3, b = 7, c = 5;\n    int result;\n}",
+      "code": "class Item {\n    const int id;\npublic:\n    Item(int n) // Your code here\n    {\n    }\n};",
       "answers": [
         {
-          "text": "result=square(max(max(a,b),c)-min(min(a,b),c));",
+          "text": ":id(n)",
           "fraction": 100
         }
       ]
     },
     {
-      "name": "C Functions - Calculating the Hypotenuse",
-      "questiontext": "Inspect the code below. You need to calculate the Hypotenuse of a right-angled triangle using the Pythagorean theorem. Write a single line of code to assign the hypotenuse to result using only the provided functions. Your answer should not contain spaces.",
+      "name": "C++ - OOP: Function Override",
+      "questiontext": "Analyze the code. Write a single line that correctly overrides the method <b>f</b> in the derived class so that it returns the base function result multiplied by 2. Your answer must not contain extra spaces.",
       "questiontype": "shortanswer",
-      "code": "#include <stdio.h>\n#include <math.h>\n\ndouble get_sqrt(double n) {\n    return sqrt(n);\n}\n\ndouble get_sum(double x, double y) {\n    return x + y;\n}\n\ndouble get_square(double z) {\n    return z * z;\n}\n\nint main() {\n    double a = 3.0, b = 4.0;\n    double result;\n    // Your code here\n}",
+      "code": "class A {\npublic:\n    virtual int f() { return 10; }\n};\n\nclass B : public A {\npublic:\n    int f() { // Your code here\n    }\n};",
       "answers": [
         {
-          "text": "result=get_sqrt(get_sum(get_square(a),get_square(b)));",
+          "text": "return A::f()*2;",
           "fraction": 100
         }
       ]

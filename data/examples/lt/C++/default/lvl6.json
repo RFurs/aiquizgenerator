@@ -1,17 +1,17 @@
 {
   "questions": [
     {
-      "name": "C Funkcijos - Palindromas",
-      "questiontext": "Suprojektuokite ir įgyvendinkite funkciją C programavimo kalba, kuri nustatytų ar teksto eilutė yra palindromas. Palindromas yra eilutė, kuri skaitosi vienodai tiek iš dešinės į kairę, tiek iš kairės į dešinę. <br>Pavyzdys:",
+      "name": "C++ - OOP: Pirminių daugiklių skaidymas",
+      "questiontext": "Suprojektuokite klasę <b>PrimeFactorizer</b>, kuri priima sveikąjį skaičių per konstruktorių. Įgyvendinkite metodą <b>factorize()</b>, kuris išskaido saugomą skaičių pirminiais daugikliais ir juos išveda į ekraną (arba grąžina kolekciją). ",
       "questiontype": "essay",
-      "code": "char a[] = \"level\";\nisPalindrome(a) // Result: true",
+      "code": "PrimeFactorizer pf(60);\npf.factorize(); // Galima išvestis: 2 * 2 * 3 * 5",
       "answers": []
     },
     {
-      "name": "C Funkcijos - Armstrongo skaičius",
-      "questiontext": "Suprojektuokite ir įgyvendinkite funkciją C programavimo kalba, kuri nustatytų ar natūralusis skaičius yra Armstrongo skaičius. Armstrongo skaičius - tai toks natūralusis skaičius, kurio skaitmenų suma, kiekvieną jų pakėlus skaitmenų kiekio laipsniu, yra lygi pačiam skaičiui. <br>Pavyzdys:",
+      "name": "C++ - OOP: Dinaminio masyvo (vektoriaus) kūrimas",
+      "questiontext": "Suprojektuokite supaprastintą dinaminio masyvo klasę <b>IntVector</b>. Klasė turi simuliuoti klasės std::vector veikimą sveikiesiems skaičiams. Įgyvendinkite: <br>1. Konstruktorių, kuris išskiria pradinę atmintį.<br>2. Metodą <b>push_back(int value)</b>, kuris prideda elementą.<br>3. Metodą <b>pop_back()</b>, kuris šalina paskutinį masyvo elementą.<br>4. Destruktorių, užtikrinantį saugų atminties atlaisvinimą.",
       "questiontype": "essay",
-	    "code": "int n = 153;\nisArmstrong(n) // Result: true, because 153 = 1^3 + 5^3 + 3^3",
+      "code": "IntVector v;\nv.push_back(10);\nv.push_back(20);",
       "answers": []
     }
   ]

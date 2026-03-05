@@ -1,17 +1,17 @@
 {
   "questions": [
     {
-      "name": "C Funkcijos - Palindromas",
-      "questiontext": "Suprojektuokite ir įgyvendinkite funkciją C programavimo kalba, kuri nustatytų ar teksto eilutė yra palindromas. Palindromas yra eilutė, kuri skaitosi vienodai tiek iš dešinės į kairę, tiek iš kairės į dešinę. <br>Pavyzdys:",
+      "name": "DSA - Sąrašai: dublikatų pašalinimas sąraše",
+      "questiontext": "Duota surikiuoto sąrašo galva (head). Parašykite funkciją, kurį pašalintų visus sąraše esančius dublikatus. <br>Pavyzdys:",
       "questiontype": "essay",
-      "code": "char a[] = \"level\";\nisPalindrome(a) // Result: true",
+      "code": "// Input: 1 -> 2 -> 2 -> 3 -> 3 -> 4\n// Output: 1 -> 2 -> 3 -> 4",
       "answers": []
     },
     {
-      "name": "C Funkcijos - Armstrongo skaičius",
-      "questiontext": "Suprojektuokite ir įgyvendinkite funkciją C programavimo kalba, kuri nustatytų ar natūralusis skaičius yra Armstrongo skaičius. Armstrongo skaičius - tai toks natūralusis skaičius, kurio skaitmenų suma, kiekvieną jų pakėlus skaitmenų kiekio laipsniu, yra lygi pačiam skaičiui. <br>Pavyzdys:",
+      "name": "DSA - Sąrašai: vienpusio sąrašo apvertimas",
+      "questiontext": "Duota vienpusio sąrašo galva (head). Parašykite funkciją, kuri grąžintų apverstą sąrašą.<br>Pavyzdys:",
       "questiontype": "essay",
-	    "code": "int n = 153;\nisArmstrong(n) // Result: true, because 153 = 1^3 + 5^3 + 3^3",
+	    "code": "// Input: 1 -> 2 -> 3 -> 4 -> 5\n// Output: 5 -> 4 -> 3 -> 2 -> 1",
       "answers": []
     }
   ]

@@ -1,17 +1,17 @@
 {
   "questions": [
     {
-      "name": "C Functions - Safe division",
-      "questiontext": "Consider the C function provided below. Evaluate this function in terms of correctness and reliability. Propose a modification and justify it.",
+      "name": "C++ - OOP: Virtualaus destruktoriaus trūkumas",
+      "questiontext": "Išnagrinėkite žemiau pateiktą. Įvertinkite pateiktą kodą atminties valdymo požiūriu. Pasiūlykite modifikaciją ir ją pagrįskite.",
       "questiontype": "essay",
-      "code": "#include <stdio.h>\n\nfloat average(int a, int b) {\n    return (float)(a + b) / (a - b);\n}\n\nint main() {\n    int x = 5, y = 5;\n    printf(\"Average: %.2f\\n\", average(x, y));\n    return 0;\n}",
+      "code": "#include <iostream>\n\nclass Base {\npublic:\n    Base() { }\n    ~Base() { std::cout << \"Base destroyed\\n\"; }\n};\n\nclass Derived : public Base {\n    int* data;\npublic:\n    Derived() { data = new int[100]; }\n    ~Derived() { \n        delete[] data; \n        std::cout << \"Derived destroyed\\n\"; \n    }\n};\n\nint main() {\n    Base* ptr = new Derived();\n    delete ptr;\n    return 0;\n}",
       "answers": []
     },
     {
-      "name": "C Functions - Infinite recursion",
-      "questiontext": "Consider the C function provided below. Evaluate this function in terms of correctness and reliability. Propose a modification and justify it.",
+      "name": "C++ - OOP: Statinio nario inicializavimo saugumas",
+      "questiontext": "Išnagrinėkite žemiau pateiktą. Įvertinkite statinio kintamojo naudojimą šioje klasėje. Pasiūlykite modifikaciją ir ją pagrįskite ",
       "questiontype": "essay",
-	  "code": "#include <stdio.h>\n\nint sum(int n) {\n    return n + sum(n - 1);\n}\n\nint main() {\n    int num = 5;\n    printf(\"Suma: %d\\n\", sum(num));\n    return 0;\n}",
+      "code": "class Tracker {\npublic:\n    static int count;\n    Tracker() { count++; }\n    ~Tracker() { count--; }\n};\n\nint Tracker::count = 0;\n\nvoid process(Tracker t) {\n    // Atliekami veiksmai\n}",
       "answers": []
     }
   ]

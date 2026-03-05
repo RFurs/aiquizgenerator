@@ -1,25 +1,25 @@
 {
   "questions": [
     {
-      "name": "C Functions - Mutual recursion output",
-      "questiontext": "Inspect the code provided below. What's the program's output?",
+      "name": "C++ - OOP: Constructor and Destructor Sequence",
+      "questiontext": "Analyze the given code. What will be the program output (sequence of characters without spaces)?",
       "questiontype": "shortanswer",
-      "code": "#include <stdio.h>\n\nvoid funcA(int n);\nvoid funcB(int n);\n\nvoid funcA(int n) {\n    if (n <= 0) return;\n    printf(\"%d \", n);\n    funcB(n - 1);\n    printf(\"%d \", n);\n}\n\nvoid funcB(int n) {\n    if (n <= 0) return;\n    printf(\"%d \", n);\n    funcA(n % 2);\n}\n\nint main() {\n    funcA(4);\n    return 0;\n}",
+      "code": "#include <iostream>\nusing namespace std;\n\nclass A {\npublic:\n    A() { cout << \"A\"; }\n    virtual ~A() { cout << \"a\"; }\n};\n\nclass B : public A {\npublic:\n    B() { cout << \"B\"; }\n    ~B() { cout << \"b\"; }\n};\n\nint main() {\n    A* obj = new B();\n    delete obj;\n    return 0;\n}",
       "answers": [
         {
-          "text": "4 3 1 1 4",
+          "text": "ABba",
           "fraction": 100
         }
       ]
     },
     {
-      "name": "C Functions - Recursive function output",
-      "questiontext": "Inspect the code provided below. What's the program's output?",
+      "name": "C++ - OOP: Composite Object Lifecycle",
+      "questiontext": "Analyze the code. What will be the sequence of characters output after executing the main function?",
       "questiontype": "shortanswer",
-	  "code": "#include <stdio.h>\n\nint func(int x) {\n    if (x <= 0) return 0;\n    if (x == 1) return 1;\n    return func(x - 2) + func(x - 1);\n}\n\nint main() {\n    printf(\"%d\", func(4));\n    return 0;\n}",
+      "code": "#include <iostream>\nusing namespace std;\n\nclass Part {\npublic:\n    Part() { cout << \"P\"; }\n    ~Part() { cout << \"p\"; }\n};\n\nclass Whole {\n    Part p;\npublic:\n    Whole() { cout << \"W\"; }\n    ~Whole() { cout << \"w\"; }\n};\n\nint main() {\n    Whole obj;\n    return 0;\n}",
       "answers": [
         {
-          "text": "3",
+          "text": "PWwp",
           "fraction": 100
         }
       ]

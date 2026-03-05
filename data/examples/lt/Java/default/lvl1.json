@@ -1,49 +1,73 @@
 {
     "questions": [
         {
-            "name": "C funkcijos – grąžinimo tipas pagal nutylėjimą",
-            "questiontext": "Koks yra funkcijos grąžinamų duomenų tipas pagal nutylėjimą C programavimo kalboje?",
+            "name": "Java - OOP: prieigos modifikatorius pagal nutylėjimą",
+            "questiontext": "Kokį prieigos modifikatorių Java programavimo kalboje turi klasės laukai pagal nutylėjimą?",
             "questiontype": "multichoice",
             "code": "",
             "answers": [
                 {
-                    "text": "int",
+                    "text": "private",
+                    "fraction": 0
+                },
+                {
+                    "text": "protected",
+                    "fraction": 0
+                },
+                {
+                    "text": "public",
+                    "fraction": 0
+                },
+                {
+                    "text": "package-private",
+                    "fraction": 100
+                }
+            ]
+        },
+        {
+            "name": "Java - OOP: paveldėjimas iš Object",
+            "questiontext": "Iš kurios klasės Java programavimo kalboje paveldi visos vartotojo įgyvendintos klasės",
+            "questiontype": "multichoice",
+            "code": "",
+            "answers": [
+                {
+                    "text": "Class",
+                    "fraction": 0
+                },
+                {
+                    "text": "System",
+                    "fraction": 0
+                },
+                {
+                    "text": "Object",
                     "fraction": 100
                 },
                 {
-                    "text": "void",
-                    "fraction": 0
-                },
-                {
-                    "text": "bool",
-                    "fraction": 0
-                },
-                {
-                    "text": "Pagal nutylėjimą funkcijos nieko negrąžina",
+                    "text": "Main",
                     "fraction": 0
                 }
             ]
         },
         {
-            "name": "C funkcijos – funkcijos prototipas",
-            "questiontext": "Kas yra funkcijos prototipas?",
+            "name": "Java - OOP: paveldėjimo raktažodis",
+            "questiontext": "Kuris raktažodis Java programavimo kalboje naudojamas klasės paveldėjimui",
             "questiontype": "multichoice",
             "code": "",
             "answers": [
                 {
-                    "text": "Funkcijos kūnas, kuriame yra vykdomieji sakiniai",
-                    "fraction": 0
-                },
-                {
-                    "text": "Funkcijos deklaracija, nurodanti jos pavadinimą, grąžinimo tipą ir parametrus",
+                    "text": "extends",
                     "fraction": 100
                 },
                 {
-                    "text": "Bendrosios paskirties funkcija, esanti standartinėje C bibliotekoje",
+                    "text": "implements",
                     "fraction": 0
                 },
                 {
-                    "text": "Funkcija, kuri dar nėra visiškai įgyvendinta (implementuota)",
+                    "text": "inherits",
+                    "fraction": 0
+                },
+                {
+                    "text": "super",
                     "fraction": 0
                 }
             ]

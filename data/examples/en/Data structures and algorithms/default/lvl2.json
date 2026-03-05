@@ -1,76 +1,52 @@
 {
-	"questions": [
-		{
-			"name": "C Functions - function prototype",
-			"questiontext": "Inspect a code fragment provided below and choose the correct statements",
-			"questiontype": "multichoice",
-			"code": "void fun(int, char, char[]);",
-			"answers": [
-				{
-					"text": "Function does not return anything",
-					"fraction": 50
-				},
-				{
-					"text": "Function returns void datatype",
-					"fraction": -50
-				},
-				{
-					"text": "Function can have return statement",
-					"fraction": 50
-				},
-				{
-					"text": "Function cannot have return statement",
-					"fraction": -50
-				}
-			]
-		},
-		{
-			"name": "C Functions - function parameters",
-			"questiontext": "Inspect a code fragment provided below and choose the correct calls",
-			"questiontype": "multichoice",
-			"code": "void fun(int, char, char[]);",
-			"answers": [
-				{
-					"text": "fun(0,0,0);",
-					"fraction": 25
-				},
-				{
-					"text": "fun(1,'1',\"1\");",
-					"fraction": 25
-				},
-				{
-					"text": "fun('2',2,\"2\");",
-					"fraction": 25
-				},
-				{
-					"text": "fun('a','a',\"a\");",
-					"fraction": 25
-				}
-			]
-		},
-		{
-			"name": "C Functions - function header",
-			"questiontext": "Which sentences may be correct function headers?",
-			"questiontype": "multichoice",
-			"code": "",
-			"answers": [
-				{
-					"text": "void fun(0)",
-					"fraction": -50
-				},
-				{
-					"text": "int fun",
-					"fraction": -50
-				},
-				{
-					"text": "void fun(void)",
-					"fraction": 50
-				},
-				{
-					"text": "int fun(int, int)",
-					"fraction": 50
-				}
-			]
-		}
-	]
+    "questions": [
+        {
+            "name": "DSA - Data structures: Stack and Queue Combination",
+            "questiontext": "We have an empty stack and an empty queue. Perform the operations: stack.push(10), stack.push(20), queue.enqueue(stack.pop()), queue.enqueue(30). What will be the value at the front of the queue after these operations?",
+            "questiontype": "multichoice",
+            "code": "",
+            "answers": [
+                {
+                    "text": "20",
+                    "fraction": 100
+                },
+                {
+                    "text": "10",
+                    "fraction": -100
+                },
+                {
+                    "text": "30",
+                    "fraction": -100
+                },
+                {
+                    "text": "The queue will be empty",
+                    "fraction": -100
+                }
+            ]
+        },
+        {
+            "name": "DSA - Sorting algorithms: Quicksort vs Bubblesort",
+            "questiontext": "Which statements are correct?",
+            "questiontype": "multichoice",
+            "code": "",
+            "answers": [
+                {
+                    "text": "The Quicksort algorithm is always more efficient than the Bubble sort algorithm",
+                    "fraction": -100
+                },
+                {
+                    "text": "There are cases where Bubble sort is more efficient than Quicksort",
+                    "fraction": 50
+                },
+                {
+                    "text": "In the best case, Quicksort has a time complexity of O(log n)",
+                    "fraction": -100
+                },
+                {
+                    "text": "In the best case, Bubble sort has a time complexity of O(n)",
+                    "fraction": 50
+                }
+            ]
+        }
+    ]
 }

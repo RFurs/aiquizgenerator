@@ -1,52 +1,76 @@
 {
-	"questions": [
-		{
-			"name": "C Functions - default return type",
-			"questiontext": "What is the default return data type of a function in the C programming language",
-			"questiontype": "multichoice",
-			"code": "",
-			"answers": [
-				{
-					"text": "int",
-					"fraction": 100
-				},
-				{
-					"text": "void",
-					"fraction": 0
-				},
-				{
-					"text": "bool",
-					"fraction": 0
-				},
-				{
-					"text": "By default functions in C do not return value",
-					"fraction": 0
-				}
-			]
-		},
-		{
-			"name": "C Functions - function prototype",
-			"questiontext": "What is a function prototype?",
-			"questiontype": "multichoice",
-			"code": "",
-			"answers": [
-				{
-					"text": "The body of a function that contains executable statements",
-					"fraction": 0
-				},
-				{
-					"text": "A declaration of a function that specifies its name, return type, and parameters",
-					"fraction": 100
-				},
-				{
-					"text": "A general-purpose function found in standard C library",
-					"fraction": 0
-				},
-				{
-					"text": "The function which is not fully implemented yet",
-					"fraction": 0
-				}
-			]
-		}
-	]
+    "questions": [
+        {
+            "name": "Java - OOP: default access modifier",
+            "questiontext": "What is the default access modifier for class fields in Java?",
+            "questiontype": "multichoice",
+            "code": "",
+            "answers": [
+                {
+                    "text": "private",
+                    "fraction": 0
+                },
+                {
+                    "text": "protected",
+                    "fraction": 0
+                },
+                {
+                    "text": "public",
+                    "fraction": 0
+                },
+                {
+                    "text": "package-private",
+                    "fraction": 100
+                }
+            ]
+        },
+        {
+            "name": "Java - OOP: inheritance from Object",
+            "questiontext": "Which class do all user-defined classes in Java implicitly inherit from?",
+            "questiontype": "multichoice",
+            "code": "",
+            "answers": [
+                {
+                    "text": "Class",
+                    "fraction": 0
+                },
+                {
+                    "text": "System",
+                    "fraction": 0
+                },
+                {
+                    "text": "Object",
+                    "fraction": 100
+                },
+                {
+                    "text": "Main",
+                    "fraction": 0
+                }
+            ]
+        },
+        {
+            "name": "Java OOP – inheritance keyword",
+            "questiontext": "Which keyword is used in Java to enable class inheritance?",
+            "questiontype": "multichoice",
+            "code": "",
+            "answers": [
+                {
+                    "text": "extends",
+                    "fraction": 100
+                },
+                {
+                    "text": "implements",
+                    "fraction": 0
+                },
+                {
+                    "text": "inherits",
+                    "fraction": 0
+                },
+                {
+                    "text": "super",
+                    "fraction": 0
+                }
+            ]
+        }
+    ]
 }

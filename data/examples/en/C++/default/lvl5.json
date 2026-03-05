@@ -1,18 +1,16 @@
 {
   "questions": [
     {
-      "name": "C Functions - Safe division",
-      "questiontext": "Consider the C function provided below. Evaluate this function in terms of correctness and reliability. Propose a modification and justify it.",
+      "name": "C++ - OOP: Lack of Virtual Destructor",
+      "questiontext": "Examine the code below. Evaluate it in terms of memory management. Propose a modification and justify it.",
       "questiontype": "essay",
-      "code": "#include <stdio.h>\n\nfloat average(int a, int b) {\n    return (float)(a + b) / (a - b);\n}\n\nint main() {\n    int x = 5, y = 5;\n    printf(\"Average: %.2f\\n\", average(x, y));\n    return 0;\n}",
-      "answers": []
+      "code": "#include <iostream>\n\nclass Base {\npublic:\n    Base() { }\n    ~Base() { std::cout << \"Base destroyed\\n\"; }\n};\n\nclass Derived : public Base {\n    int* data;\npublic:\n    Derived() { data = new int[100]; }\n    ~Derived() { \n        delete[] data; \n        std::cout << \"Derived destroyed\\n\"; \n    }\n};\n\nint main() {\n    Base* ptr = new Derived();\n    delete ptr;\n    return 0;\n}"
     },
     {
-      "name": "C Functions - Infinite recursion",
-      "questiontext": "Consider the C function provided below. Evaluate this function in terms of correctness and reliability. Propose a modification and justify it.",
+      "name": "C++ - OOP: Static Member Initialization Safety",
+      "questiontext": "Examine the code below. Evaluate the use of the static variable in this class. Propose a modification and justify it.",
       "questiontype": "essay",
-	  "code": "#include <stdio.h>\n\nint sum(int n) {\n    return n + sum(n - 1);\n}\n\nint main() {\n    int num = 5;\n    printf(\"Suma: %d\\n\", sum(num));\n    return 0;\n}",
-      "answers": []
+      "code": "class Tracker {\npublic:\n    static int count;\n    Tracker() { count++; }\n    ~Tracker() { count--; }\n};\n\nint Tracker::count = 0;\n\nvoid process(Tracker t) {\n    // Perform actions\n}"
     }
   ]
 }

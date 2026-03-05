@@ -1,52 +1,52 @@
 {
-	"questions": [
-		{
-			"name": "C Functions - default return type",
-			"questiontext": "What is the default return data type of a function in the C programming language",
-			"questiontype": "multichoice",
-			"code": "",
-			"answers": [
-				{
-					"text": "int",
-					"fraction": 100
-				},
-				{
-					"text": "void",
-					"fraction": 0
-				},
-				{
-					"text": "bool",
-					"fraction": 0
-				},
-				{
-					"text": "By default functions in C do not return value",
-					"fraction": 0
-				}
-			]
-		},
-		{
-			"name": "C Functions - function prototype",
-			"questiontext": "What is a function prototype?",
-			"questiontype": "multichoice",
-			"code": "",
-			"answers": [
-				{
-					"text": "The body of a function that contains executable statements",
-					"fraction": 0
-				},
-				{
-					"text": "A declaration of a function that specifies its name, return type, and parameters",
-					"fraction": 100
-				},
-				{
-					"text": "A general-purpose function found in standard C library",
-					"fraction": 0
-				},
-				{
-					"text": "The function which is not fully implemented yet",
-					"fraction": 0
-				}
-			]
-		}
-	]
+    "questions": [
+        {
+            "name": "Comparch - x86: bus lock and LOCK prefix",
+            "questiontext": "Which x86 instruction automatically triggers a bus lock even without the LOCK prefix?",
+            "questiontype": "multichoice",
+            "code": "",
+            "answers": [
+                {
+                    "text": "XCHG",
+                    "fraction": 100
+                },
+                {
+                    "text": "ADD",
+                    "fraction": 0
+                },
+                {
+                    "text": "MOV",
+                    "fraction": 0
+                },
+                {
+                    "text": "JMP",
+                    "fraction": 0
+                }
+            ]
+        },
+        {
+            "name": "Comparch - Computer components: Cache Memory",
+            "questiontext": "Which statement about cache memory is correct?",
+            "questiontype": "multichoice",
+            "code": "",
+            "answers": [
+                {
+                    "text": "Cache memory is always larger than main memory (RAM)",
+                    "fraction": 0
+                },
+                {
+                    "text": "Cache memory is always smaller than main memory (RAM)",
+                    "fraction": 100
+                },
+                {
+                    "text": "Cache memory is approximately the same size as main memory (RAM)",
+                    "fraction": 0
+                },
+                {
+                    "text": "Cache memory is exactly the same size as main memory (RAM)",
+                    "fraction": 0
+                }
+            ]
+        }
+    ]
 }

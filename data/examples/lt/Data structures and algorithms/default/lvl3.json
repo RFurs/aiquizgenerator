@@ -1,25 +1,25 @@
 {
   "questions": [
     {
-      "name": "C funkcijos – skirtumo tarp max ir min kvadratas",
-      "questiontext": "Išanalizuokite žemiau pateiktą kodą. Parašykite vieną sakinį, kuri kintamajam „result“ priskirtų skirtumo tarp didžiausio ir mažiausio iš trijų kintamųjų (a, b ir c) kvadratą, naudojant tik pateiktas funkcijas. Jūsų atsakyme neturi būti tarpų.",
+      "name": "DSA - Sąrašai: Mazgo įterpimas į sąrašo pradžią",
+      "questiontext": "Išanalizuokite kodą. Turite sąrašo pradžią „head“ ir naują mazgą „newNode“. Parašykite vieną kodo eilutę, kuri prijungtų „newNode“ prie dabartinio sąrašo pradžios (kad „newNode“ rodytų į „head“). Jūsų atsakyme neturi būti perteklinių tarpų.",
       "questiontype": "shortanswer",
-      "code": "#include <stdio.h>\n\nint max(int a, int b)\n{\n    if (a > b)\n        return a;\n    return b;\n}\n\nint min(int a, int b)\n{\n    if (a > b)\n        return b;\n    return a;\n}\n\nint square(int x)\n{\n    return x * x;\n}\n\nint main()\n{\n    int a = 3, b = 7, c = 5;\n    int result;\n}",
+      "code": "struct Node {\n    int data;\n    Node* next;\n};\n\nNode* head = /* kažkoks sąrašas */;\nNode* newNode = new Node{10, nullptr};\n// Jūsų kodas čia",
       "answers": [
         {
-          "text": "result=square(max(max(a,b),c)-min(min(a,b),c));",
+          "text": "newNode->next=head;",
           "fraction": 100
         }
       ]
     },
     {
-      "name": "C funkcijos – įžambinės apskaičiavimas",
-      "questiontext": "Išanalizuokite žemiau pateiktą kodą. Parašykite vieną kodo eilutę, kuri apskaičiuotų įžambinę pagal Pitagoro teoremą ir priskirtų reikšmę kintamajam „result“, naudojant tik pateiktas funkcijas. Jūsų atsakyme neturi būti tarpų. ",
+      "name": "DSA - Sąrašai: Rodyklės į pabaigą nukreipimas",
+      "questiontext": "Išanalizuokite kodą. Turite mazgą „temp“, kuris yra paskutinis sąraše. Parašykite eilutę, kuri prijungtų naują mazgą „last“ prie „temp“ galo. Jūsų atsakyme neturi būti perteklinių tarpų.",
       "questiontype": "shortanswer",
-      "code": "#include <stdio.h>\n#include <math.h>\n\ndouble get_sqrt(double n) {\n    return sqrt(n);\n}\n\ndouble get_sum(double x, double y) {\n    return x + y;\n}\n\ndouble get_square(double z) {\n    return z * z;\n}\n\nint main() {\n    double a = 3.0, b = 4.0;\n    double result;\n    // Jūsų kodas čia\n}",
+      "code": "struct Node {\n    int data;\n    Node* next;\n};\n\nNode* temp = /* paskutinis mazgas */;\nNode* last = new Node{99, nullptr};\n// Jūsų kodas čia",
       "answers": [
         {
-          "text": "result=get_sqrt(get_sum(get_square(a),get_square(b)));",
+          "text": "temp->next=last;",
           "fraction": 100
         }
       ]

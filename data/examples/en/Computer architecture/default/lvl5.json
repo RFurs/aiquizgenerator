@@ -1,17 +1,17 @@
 {
   "questions": [
     {
-      "name": "C Functions - Safe division",
-      "questiontext": "Consider the C function provided below. Evaluate this function in terms of correctness and reliability. Propose a modification and justify it.",
+      "name": "Comparch - x86: Zeroing Optimization",
+      "questiontext": "Evaluate the three given methods for setting the EAX register to 0. Which of them is the most efficient in terms of opcode size and execution speed on a modern processor?",
       "questiontype": "essay",
-      "code": "#include <stdio.h>\n\nfloat average(int a, int b) {\n    return (float)(a + b) / (a - b);\n}\n\nint main() {\n    int x = 5, y = 5;\n    printf(\"Average: %.2f\\n\", average(x, y));\n    return 0;\n}",
+      "code": "// Method 1\nMOV EAX, 0\n\n// Method 2\nXOR EAX, EAX\n\n// Method 3\nAND EAX, 0",
       "answers": []
     },
     {
-      "name": "C Functions - Infinite recursion",
-      "questiontext": "Consider the C function provided below. Evaluate this function in terms of correctness and reliability. Propose a modification and justify it.",
+      "name": "Comparch - x86: Loop Optimization and Flags",
+      "questiontext": "Analyze the given loop fragment. Evaluate whether this code is correct and reliable. What would happen if the variable ECX were initially 0? Suggest a modification that would ensure program stability in unexpected cases.",
       "questiontype": "essay",
-	  "code": "#include <stdio.h>\n\nint sum(int n) {\n    return n + sum(n - 1);\n}\n\nint main() {\n    int num = 5;\n    printf(\"Suma: %d\\n\", sum(num));\n    return 0;\n}",
+      "code": "loop_start:\n    ; ... perform actions ...\n    DEC ECX\n    JNZ loop_start",
       "answers": []
     }
   ]

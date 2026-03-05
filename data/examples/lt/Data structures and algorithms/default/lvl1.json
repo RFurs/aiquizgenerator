@@ -1,50 +1,50 @@
 {
     "questions": [
         {
-            "name": "C funkcijos – grąžinimo tipas pagal nutylėjimą",
-            "questiontext": "Koks yra funkcijos grąžinamų duomenų tipas pagal nutylėjimą C programavimo kalboje?",
+            "name": "DSA - Duomenų struktūros: Steko veikimo principas",
+            "questiontext": "Kuriuo principu vadovaujasi steko duomenų struktūra?",
             "questiontype": "multichoice",
             "code": "",
             "answers": [
-                {
-                    "text": "int",
-                    "fraction": 100
+                { 
+                    "text": "FIFO (First-In, First-Out)", 
+                    "fraction": 0 
                 },
-                {
-                    "text": "void",
-                    "fraction": 0
+                { 
+                    "text": "LIFO (Last-In, First-Out)", 
+                    "fraction": 100 
                 },
-                {
-                    "text": "bool",
-                    "fraction": 0
+                { 
+                    "text": "LILO (Last-In, Last-Out)", 
+                    "fraction": 0 
                 },
-                {
-                    "text": "Pagal nutylėjimą funkcijos nieko negrąžina",
-                    "fraction": 0
+                { 
+                    "text": "Atsitiktine tvarka", 
+                    "fraction": 0 
                 }
             ]
         },
         {
-            "name": "C funkcijos – funkcijos prototipas",
-            "questiontext": "Kas yra funkcijos prototipas?",
+            "name": "DSA - Asimptotinis sudėtingumas: Big O notacija",
+            "questiontext": "Ką apibrėžia „Big O“ notacija algoritmuose?",
             "questiontype": "multichoice",
             "code": "",
             "answers": [
-                {
-                    "text": "Funkcijos kūnas, kuriame yra vykdomieji sakiniai",
-                    "fraction": 0
+                { 
+                    "text": "Tikslų algoritmo žingsnių skaičių", 
+                    "fraction": 0 
                 },
-                {
-                    "text": "Funkcijos deklaracija, nurodanti jos pavadinimą, grąžinimo tipą ir parametrus",
-                    "fraction": 100
+                { 
+                    "text": "Algoritmo vykdymo laiko ar atminties poreikio viršutinę ribą blogiausiu atveju", 
+                    "fraction": 100 
                 },
-                {
-                    "text": "Bendrosios paskirties funkcija, esanti standartinėje C bibliotekoje",
-                    "fraction": 0
+                { 
+                    "text": "Algoritmo vykdymo laiko ar atminties poreikio viršutinę ribą geriausiu atveju", 
+                    "fraction": 0 
                 },
-                {
-                    "text": "Funkcija, kuri dar nėra visiškai įgyvendinta (implementuota)",
-                    "fraction": 0
+                { 
+                    "text": "Algoritmo vykdymo laiko ar atminties poreikio viršutinę ribą vidutiniu atveju", 
+                    "fraction": 0 
                 }
             ]
         }

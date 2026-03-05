@@ -1,49 +1,49 @@
 {
     "questions": [
         {
-            "name": "C funkcijos – grąžinimo tipas pagal nutylėjimą",
-            "questiontext": "Koks yra funkcijos grąžinamų duomenų tipas pagal nutylėjimą C programavimo kalboje?",
+            "name": "Comparch x86 - magistralės rakinimas ir LOCK prefiksas",
+            "questiontext": "Kuri x86 komanda net be LOCK prefikso automatiškai aktyvuoja magistralės rakinimą?",
             "questiontype": "multichoice",
             "code": "",
             "answers": [
                 {
-                    "text": "int",
+                    "text": "XCHG",
                     "fraction": 100
                 },
                 {
-                    "text": "void",
+                    "text": "ADD",
                     "fraction": 0
                 },
                 {
-                    "text": "bool",
+                    "text": "MOV",
                     "fraction": 0
                 },
                 {
-                    "text": "Pagal nutylėjimą funkcijos nieko negrąžina",
+                    "text": "JMP",
                     "fraction": 0
                 }
             ]
         },
         {
-            "name": "C funkcijos – funkcijos prototipas",
-            "questiontext": "Kas yra funkcijos prototipas?",
+            "name": "Comparch - Kompiuterio komponentai: spartinančioji atmintis",
+            "questiontext": "Kuris teiginys apie spartinančią atmintį (cache) yra teisingas?",
             "questiontype": "multichoice",
             "code": "",
             "answers": [
                 {
-                    "text": "Funkcijos kūnas, kuriame yra vykdomieji sakiniai",
+                    "text": "Spartinančioji atmintis (cache) visada didesnė už pagrindinę atmintį (RAM)",
                     "fraction": 0
                 },
                 {
-                    "text": "Funkcijos deklaracija, nurodanti jos pavadinimą, grąžinimo tipą ir parametrus",
+                    "text": "Spartinančioji atmintis (cache) visada mažesnė už pagrindinę atmintį (RAM)",
                     "fraction": 100
                 },
                 {
-                    "text": "Bendrosios paskirties funkcija, esanti standartinėje C bibliotekoje",
+                    "text": "Spartinančioji atmintis (cache) yra apytiksliai to paties dydžio kaip pagrindinė atmintis (RAM)",
                     "fraction": 0
                 },
                 {
-                    "text": "Funkcija, kuri dar nėra visiškai įgyvendinta (implementuota)",
+                    "text": "Spartinančioji atmintis (cache) yra to paties dydžio kaip pagrindinė atmintis (RAM)",
                     "fraction": 0
                 }
             ]

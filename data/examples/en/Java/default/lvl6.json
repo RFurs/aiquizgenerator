@@ -1,17 +1,17 @@
 {
   "questions": [
     {
-      "name": "C Functions - Palindrome",
-      "questiontext": "Design and implement a user-defined function in C that determines whether a given string is a palindrome. A palindrome is a string that reads the same forward and backward. <br>Example:",
+      "name": "Java - OOP: Poker Card and Deck",
+      "questiontext": "Design a class `Card` that represents a single poker card. The card should have a suit (`Hearts`, `Diamonds`, `Clubs`, `Spades`) and a rank (2-10, `Jack`, `Queen`, `King`, `Ace`). Create a class `Deck` that contains a list of 52 `Card` objects (ArrayList). Implement a method `shuffle()` that randomly rearranges the cards, and a method `dealCard()` that returns (and removes) one card from the deck.",
       "questiontype": "essay",
-      "code": "char a[] = \"level\";\nisPalindrome(a) // Result: true",
+      "code": "// Example:\nDeck deck = new Deck();\ndeck.shuffle();\nCard c = deck.dealCard();\nSystem.out.println(c.toString()); // Example: \"Ace of Spades\"",
       "answers": []
     },
     {
-      "name": "C Functions - Armstrong number",
-      "questiontext": "Design and implement a user-defined function in C that determines whether a given integer number is an Armstrong number. A natural number is an Armstrong number if it is equal to the sum of its own digits each raised to the power of the number of digits. <br>Example:",
+      "name": "Java - OOP: Time class",
+      "questiontext": "Create a class `Time` that stores time in hours, minutes, and seconds. The class should ensure data integrity (encapsulation): <br>1. The constructor should accept hours, minutes, and seconds. If the provided values are invalid (e.g., minutes > 59), they should be converted appropriately (e.g., 70 minutes becomes 1 hour and 10 minutes). <br>2. Implement a method `addSeconds(int s)` that adds seconds and correctly recalculates minutes and hours. <br>3. The method `toString()` should return the time in the format `HH:MM:SS`.",
       "questiontype": "essay",
-	    "code": "int n = 153;\nisArmstrong(n) // Result: true, because 153 = 1^3 + 5^3 + 3^3",
+      "code": "// Example:\nTime t = new Time(23, 59, 50);\nt.addSeconds(15);\nSystem.out.println(t.toString()); // Output: 00:00:05",
       "answers": []
     }
   ]

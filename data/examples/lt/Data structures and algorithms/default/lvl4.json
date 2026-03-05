@@ -1,25 +1,37 @@
 {
   "questions": [
     {
-      "name": "C funkcijos – abipusės rekursijos išvestis",
-      "questiontext": "Išanalizuokite žemiau pateiktą kodą ir nurodykite šios programos išvestį.",
+      "name": "DSA - Asimptotinis sudėtingumas: dvigubas ciklas",
+      "questiontext": "Išanalizuokite žemiau pateiktą kodą ir nurodykite jo laiko sudėtingumą Big O notacijoje. Atsakymą pateikite formatu O(1), O(n) ir t.t. Jūsų atsakyme neturi būti perteklinių tarpų.",
       "questiontype": "shortanswer",
-      "code": "#include <stdio.h>\n\nvoid funcA(int n);\nvoid funcB(int n);\n\nvoid funcA(int n) {\n    if (n <= 0) return;\n    printf(\"%d \", n);\n    funcB(n - 1);\n    printf(\"%d \", n);\n}\n\nvoid funcB(int n) {\n    if (n <= 0) return;\n    printf(\"%d \", n);\n    funcA(n % 2);\n}\n\nint main() {\n    funcA(4);\n    return 0;\n}",
+      "code": "void fun(int n) {\n    for (int i = 0; i < n; i++) {\n        for (int j = i; j < n; j++) {\n            printf(\"*\");\n        }\n    }\n}",
       "answers": [
         {
-          "text": "4 3 1 1 4",
+          "text": "O(n^2)",
           "fraction": 100
         }
       ]
     },
     {
-      "name": "C funkcijos – rekursinės funkcijos išvestis",
-      "questiontext": "Išanalizuokite žemiau pateiktą kodą ir nurodykite šios programos išvestį.",
+      "name": "DSA - Asimptotinis sudėtingumas: logaritminis augimas",
+      "questiontext": "Išanalizuokite žemiau pateiktą kodą ir nurodykite jo laiko sudėtingumą Big O notacijoje. Atsakymą pateikite formatu O(1), O(n) ir t.t. Jūsų atsakyme neturi būti perteklinių tarpų.",
       "questiontype": "shortanswer",
-      "code": "#include <stdio.h>\n\nint func(int x) {\n    if (x <= 0) return 0;\n    if (x == 1) return 1;\n    return func(x - 2) + func(x - 1);\n}\n\nint main() {\n    printf(\"%d\", func(4));\n    return 0;\n}",
+      "code": "void fun(int n) {\n    int i = 1;\n    while (i < n) {\n        i = i * 2;\n    }\n}",
       "answers": [
         {
-          "text": "3",
+          "text": "O(logn)",
+          "fraction": 100
+        }
+      ]
+    },
+    {
+      "name": "DSA - Asimptotinis sudėtingumas: rekursinis skaidymas",
+      "questiontext": "Išanalizuokite žemiau pateiktą rekursinę funkciją ir nurodykite jos laiko sudėtingumą Big O notacijoje. Atsakymą pateikite formatu O(n), O(logn) ir t.t. Jūsų atsakyme neturi būti perteklinių tarpų.",
+      "questiontype": "shortanswer",
+      "code": "void fun(int n) {\n    if (n <= 1) return;\n    printf(\"%d\", n);\n    recursiveFunc(n / 2);\n}",
+      "answers": [
+        {
+          "text": "O(logn)",
           "fraction": 100
         }
       ]

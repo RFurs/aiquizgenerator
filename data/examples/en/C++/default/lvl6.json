@@ -1,18 +1,16 @@
 {
   "questions": [
     {
-      "name": "C Functions - Palindrome",
-      "questiontext": "Design and implement a user-defined function in C that determines whether a given string is a palindrome. A palindrome is a string that reads the same forward and backward. <br>Example:",
+      "name": "C++ - OOP: Safe String (RAII)",
+      "questiontext": "Design a class <b>SimpleString</b> that dynamically allocates memory for a character array (<b>char*</b>) of the specified size in the constructor. Implement a destructor that ensures memory is properly released when the object is destroyed (preventing memory leaks).",
       "questiontype": "essay",
-      "code": "char a[] = \"level\";\nisPalindrome(a) // Result: true",
-      "answers": []
+      "code": "{\n    SimpleString s(100); // Allocates 100 bytes and automatically frees them when needed\n"
     },
     {
-      "name": "C Functions - Armstrong number",
-      "questiontext": "Design and implement a user-defined function in C that determines whether a given integer number is an Armstrong number. A natural number is an Armstrong number if it is equal to the sum of its own digits each raised to the power of the number of digits. <br>Example:",
+      "name": "C++ - OOP: Dynamic Array (Vector) Implementation",
+      "questiontext": "Design a simplified dynamic array class <b>IntVector</b>. The class should simulate the behavior of std::vector for integers. Implement: <br>1. A constructor that allocates initial memory.<br>2. A method <b>push_back(int value)</b> to add an element.<br>3. A method <b>pop_back()</b> to remove the last element.<br>4. A destructor that ensures safe memory deallocation.",
       "questiontype": "essay",
-	    "code": "int n = 153;\nisArmstrong(n) // Result: true, because 153 = 1^3 + 5^3 + 3^3",
-      "answers": []
+      "code": "IntVector v;\nv.push_back(10);\nv.push_back(20);"
     }
   ]
 }

@@ -1,25 +1,25 @@
 {
   "questions": [
     {
-      "name": "C funkcijos – skirtumo tarp max ir min kvadratas",
-      "questiontext": "Išanalizuokite žemiau pateiktą kodą. Parašykite vieną sakinį, kuri kintamajam „result“ priskirtų skirtumo tarp didžiausio ir mažiausio iš trijų kintamųjų (a, b ir c) kvadratą, naudojant tik pateiktas funkcijas. Jūsų atsakyme neturi būti tarpų.",
+      "name": "Java - OOP: raktinis žodis this",
+      "questiontext": "Papildykite setAge metodą viena eilute, kuri priskirtų <b>parametro age</b> reikšmę <b>klasės laukui age</b>. Jūsų atsakyme neturi būti perteklinių tarpų.",
       "questiontype": "shortanswer",
-      "code": "#include <stdio.h>\n\nint max(int a, int b)\n{\n    if (a > b)\n        return a;\n    return b;\n}\n\nint min(int a, int b)\n{\n    if (a > b)\n        return b;\n    return a;\n}\n\nint square(int x)\n{\n    return x * x;\n}\n\nint main()\n{\n    int a = 3, b = 7, c = 5;\n    int result;\n}",
+      "code": "class Person {\n    private int age;\n    public void setAge(int age) {\n        // Jūsų kodas čia\n    }\n}",
       "answers": [
         {
-          "text": "result=square(max(max(a,b),c)-min(min(a,b),c));",
+          "text": "this.age=age;",
           "fraction": 100
         }
       ]
     },
     {
-      "name": "C funkcijos – įžambinės apskaičiavimas",
-      "questiontext": "Išanalizuokite žemiau pateiktą kodą. Parašykite vieną kodo eilutę, kuri apskaičiuotų įžambinę pagal Pitagoro teoremą ir priskirtų reikšmę kintamajam „result“, naudojant tik pateiktas funkcijas. Jūsų atsakyme neturi būti tarpų. ",
+      "name": "Java - OOP: raktinis žodis super",
+      "questiontext": "Išanalizuokite kodą. Parašykite vieną eilutę, kuri <b>Car</b> klasės konstruktoriuje iškviestų tėvinės klasės <b>Vehicle</b> konstruktorių, perduodant jam kintamąjį <b>brand</b>. Jūsų atsakyme neturi būti perteklinių tarpų.",
       "questiontype": "shortanswer",
-      "code": "#include <stdio.h>\n#include <math.h>\n\ndouble get_sqrt(double n) {\n    return sqrt(n);\n}\n\ndouble get_sum(double x, double y) {\n    return x + y;\n}\n\ndouble get_square(double z) {\n    return z * z;\n}\n\nint main() {\n    double a = 3.0, b = 4.0;\n    double result;\n    // Jūsų kodas čia\n}",
+      "code": "class Vehicle {\n    String brand;\n    Vehicle(String brand) { this.brand = brand; }\n}\n\nclass Car extends Vehicle {\n    Car(String brand) {\n        // Jūsų kodas čia\n    }\n}",
       "answers": [
         {
-          "text": "result=get_sqrt(get_sum(get_square(a),get_square(b)));",
+          "text": "super(brand);",
           "fraction": 100
         }
       ]

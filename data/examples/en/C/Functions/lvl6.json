@@ -1,15 +1,15 @@
 {
   "questions": [
     {
-      "name": "C Functions - Palindrome",
-      "questiontext": "Design and implement a user-defined function in C that determines whether a given string is a palindrome. A palindrome is a string that reads the same forward and backward. <br>Example:",
+      "name": "C - Functions: Anagram",
+      "questiontext": "Given two strings <b>s1</b> and <b>s2</b>, return <b>true</b> if <b>s1</b> is an anagram of <b>s2</b>, and <b>false</b> otherwise. An anagram is a word formed by rearranging the letters of another<br>Example:",
       "questiontype": "essay",
-      "code": "char a[] = \"level\";\nisPalindrome(a) // Result: true",
+      "code": "char s1[] = \"act\";\nchar s2[] = \"cat\"\nisAnagram(s1, s2) // Result: true",
       "answers": []
     },
     {
-      "name": "C Functions - Armstrong number",
-      "questiontext": "Design and implement a user-defined function in C that determines whether a given integer number is an Armstrong number. A natural number is an Armstrong number if it is equal to the sum of its own digits each raised to the power of the number of digits. <br>Example:",
+      "name": "C - Functions: Armstrong number",
+      "questiontext": "Given integer <b>n</b> write a function that returns <b>true</b> if <b>n</b> is an Armstrong number, and <b>false</b> otherwise. A natural number is an Armstrong number if it is equal to the sum of its own digits each raised to the power of the number of digits. <br>Example:",
       "questiontype": "essay",
 	    "code": "int n = 153;\nisArmstrong(n) // Result: true, because 153 = 1^3 + 5^3 + 3^3",
       "answers": []

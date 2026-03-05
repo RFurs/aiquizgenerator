@@ -1,25 +1,25 @@
 {
   "questions": [
     {
-      "name": "C Functions - Mutual recursion output",
-      "questiontext": "Inspect the code provided below. What's the program's output?",
+      "name": "Comparch - Harvard Architecture: Computer Instruction Sequence",
+      "questiontext": "What will be the content of register A (accumulator) in a Harvard architecture computer after executing the following instruction sequence? The numbers in the instructions are given in decimal. Provide your answer in hexadecimal as a 16-bit word, without any additional symbols.",
       "questiontype": "shortanswer",
-      "code": "#include <stdio.h>\n\nvoid funcA(int n);\nvoid funcB(int n);\n\nvoid funcA(int n) {\n    if (n <= 0) return;\n    printf(\"%d \", n);\n    funcB(n - 1);\n    printf(\"%d \", n);\n}\n\nvoid funcB(int n) {\n    if (n <= 0) return;\n    printf(\"%d \", n);\n    funcA(n % 2);\n}\n\nint main() {\n    funcA(4);\n    return 0;\n}",
+      "code": "LDC 129\nST 129\nLDC 3478\nST 117\nLD 129\nSUB 117",
       "answers": [
         {
-          "text": "4 3 1 1 4",
+          "text": "F2EB",
           "fraction": 100
         }
       ]
     },
     {
-      "name": "C Functions - Recursive function output",
-      "questiontext": "Inspect the code provided below. What's the program's output?",
+      "name": "Comparch - x86: Register Operations",
+      "questiontext": "What will be the content of the AX register in x86 architecture after executing the following instruction sequence? The numbers in the instructions are given in decimal. Provide your answer in hexadecimal as a 16-bit word, without any additional symbols.",
       "questiontype": "shortanswer",
-	  "code": "#include <stdio.h>\n\nint func(int x) {\n    if (x <= 0) return 0;\n    if (x == 1) return 1;\n    return func(x - 2) + func(x - 1);\n}\n\nint main() {\n    printf(\"%d\", func(4));\n    return 0;\n}",
+      "code": "MOV AX, 120\nMOV [120], AX\nMOV AX, 4567\nMOV [200], AX\nMOV AX, [120]\nSUB AX, [200]",
       "answers": [
         {
-          "text": "3",
+          "text": "EE98",
           "fraction": 100
         }
       ]
