@@ -58,37 +58,40 @@ class prompt_builder {
      */
     protected function get_examples_json(\stdClass $data): ?string {
         global $CFG;
+
         $currentlang = \current_language();
-
         $lang = ($currentlang === 'lt') ? 'lt' : 'en';
-
-        $basepath = $CFG->dirroot . '/local/aiquizgenerator/data/examples/' . $lang;
+        $fs = get_file_storage();
 
         $subject = $data->subject;
-        $examplesname   = $data->jsonexamples;
-        $level   = $data->cognitive_difficulty;
+        $topic = $data->jsonexamples;
+        $level = strtolower($data->cognitive_difficulty);
 
-        $topicpath = $basepath . '/' . $subject . '/' . $examplesname;
+        $levelmap = [
+            'remember'   => 'lvl1.json',
+            'understand' => 'lvl2.json',
+            'apply'      => 'lvl3.json',
+            'analyze'    => 'lvl4.json',
+            'evaluate'   => 'lvl5.json',
+            'create'     => 'lvl6.json'
+        ];
 
-        if (!is_dir($topicpath)) {
-            $topicpath = $basepath . '/' . $subject . '/default';
+        $filename = $levelmap[$level] ?? 'lvl1.json';
+
+        if ($topic !== 'default') {
+            $coursecontext = \context_course::instance($data->courseid ?? SITEID);
+            $filepath = "/{$lang}/{$subject}/{$topic}/";
+            $file = $fs->get_file($coursecontext->id, 'local_aiquizgenerator', 'examples', 0, $filepath, $filename);
+
+            if ($file) {
+                return $file->get_content();
+            }
         }
 
-        $levelnum = match (strtolower($data->cognitive_difficulty)) {
-            'remember'   => 1,
-            'understand' => 2,
-            'apply'      => 3,
-            'analyze'    => 4,
-            'evaluate'   => 5,
-            'create'     => 6,
-            default      => 1,
-        };
-
-        $filename = 'lvl' . $levelnum . '.json';
-        $fullpath = $topicpath . '/' . $filename;
-
-        if (file_exists($fullpath)) {
-            return file_get_contents($fullpath);
+        $defaultpath = $CFG->dirroot . "/local/aiquizgenerator/data/examples/{$lang}/{$subject}/default/{$filename}";
+        
+        if (file_exists($defaultpath)) {
+            return file_get_contents($defaultpath);
         }
 
         return null;

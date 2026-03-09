@@ -35,6 +35,9 @@ require_login($course);
 $context = context_course::instance($courseid);
 require_capability('local/aiquizgenerator:generate', $context);
 
+global $SESSION;
+$session_key = 'aiquiz_form_data_' . $courseid;
+
 $PAGE->set_url(new moodle_url('/local/aiquizgenerator/index.php', ['courseid' => $courseid]));
 $PAGE->set_context($context);
 $PAGE->set_pagelayout('standard');
@@ -42,9 +45,15 @@ $PAGE->set_title(get_string('quizgenerator', 'local_aiquizgenerator'));
 $PAGE->set_heading($course->fullname);
 
 $mform = new \local_aiquizgenerator\form\edit(null, ['courseid' => $courseid]);
-$mform->set_data(['courseid' => $courseid]);
+
+if (isset($SESSION->$session_key)) {
+    $mform->set_data($SESSION->$session_key);
+} else {
+    $mform->set_data(['courseid' => $courseid]);
+}
 
 if ($mform->is_cancelled()) {
+    unset($SESSION->$session_key);
     redirect(new moodle_url('/course/view.php', ['id' => $courseid]));
 }
 
@@ -52,6 +61,8 @@ $quizcontent = null;
 
 if ($data = $mform->get_data()) {
     try {
+        $SESSION->$session_key = $data;
+
         $generator = new \local_aiquizgenerator\generator();
         $formatconverter = new \local_aiquizgenerator\format_converter();
         $importer = new \local_aiquizgenerator\xml_importer();
@@ -62,6 +73,7 @@ if ($data = $mform->get_data()) {
 
         $message = get_string('generatedsuccessfully', 'local_aiquizgenerator');
         $selfurl = new moodle_url('/local/aiquizgenerator/index.php', ['courseid' => $courseid]);
+        
         redirect($selfurl, $message, null, \core\output\notification::NOTIFY_SUCCESS);
 
     } catch (\Exception $e) {

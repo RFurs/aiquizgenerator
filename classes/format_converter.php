@@ -75,13 +75,16 @@ class format_converter {
 
             if ($q['questiontype'] === 'multichoice') {
                 $correctanswers = 0;
+                $penaltyanswers = 0;
                 foreach ($q['answers'] as $ans) {
                     if ((float)$ans['fraction'] > 0) {
                         $correctanswers++;
+                    } elseif ((float)$ans['fraction'] < 0) {
+                        $penaltyanswers++;
                     }
                 }
 
-                $single = ($correctanswers <= 1) ? 'true' : 'false';
+                $single = ($correctanswers <= 1 || $penaltyanswers == 0) ? 'true' : 'false';
                 $question->appendChild($dom->createElement('single', $single));
                 $question->appendChild($dom->createElement('shuffleanswers', '1'));
                 $question->appendChild($dom->createElement('answernumbering', 'abc'));

@@ -145,10 +145,10 @@ class edit extends \moodleform {
             }
         }
 
-        $mform->addElement(
+        $jsonselect = $mform->createElement(
             'select',
             'jsonexamples',
-            get_string('jsonexamples', 'local_aiquizgenerator'),
+            '',
             $whitelist
         );
 
@@ -156,6 +156,25 @@ class edit extends \moodleform {
             'local_aiquizgenerator/jsonexamples',
             'init',
             [$alltopics]
+        );
+
+        $examplesurl = new \moodle_url('/local/aiquizgenerator/examples.php', ['courseid' => $courseid]);
+        $managebutton = $mform->createElement(
+            'static', 
+            'manageexamples', 
+            '', 
+            \html_writer::tag('a',
+                get_string('manageexamples', 'local_aiquizgenerator'),
+                ['href' => $examplesurl->out(), 'class' => 'btn btn-secondary ml-2', 'role' => 'button']
+            )
+        );
+
+        $mform->addGroup(
+            [$jsonselect, $managebutton], 
+            'examples_group', 
+            get_string('jsonexamples', 'local_aiquizgenerator'), 
+            [' '], // Separator between elements
+            false
         );
 
         if ((int)$CFG->branch >= 500) {
@@ -207,44 +226,61 @@ class edit extends \moodleform {
 
 
     /**
-    * Builds an array containing topics that are present at aiquizgenerator/data/examples/...
+    * Builds a flat array containing default JSON output examples and user-defined JSON examples that are found in course filearea
     * @return array Generated XML content.
     */
     private function get_all_example_topics(): array {
         global $CFG;
-
-        $currentlang = current_language();
-        $lang = ($currentlang === 'lt') ? 'lt' : 'en';
-        $basepath = $CFG->dirroot . '/local/aiquizgenerator/data/examples/' . $lang;
+        $courseid = $this->_customdata['courseid'];
+        $context = \context_course::instance($courseid);
 
         $result = [];
 
-        if (!is_dir($basepath)) {
-            return $result;
-        }
+        $currentlang = current_language();
+        $lang = ($currentlang === 'lt') ? 'lt' : 'en';
+        $basedefault = $CFG->dirroot . '/local/aiquizgenerator/data/examples/' . $lang;
 
-        foreach (scandir($basepath) as $subject) {
-            if ($subject === '.' || $subject === '..') {
-                continue;
-            }
-
-            $subjectpath = $basepath . '/' . $subject;
-
-            if (!is_dir($subjectpath)) {
-                continue;
-            }
-
-            $topics = ['default'];
-
-            foreach (scandir($subjectpath) as $topic) {
-                if ($topic !== '.' && $topic !== '..' &&
-                    is_dir($subjectpath . '/' . $topic)) {
-                    $topics[] = $topic;
+        if (is_dir($basedefault)) {
+            foreach (scandir($basedefault) as $subject) {
+                if ($subject === '.' || $subject === '..') {
+                    continue;
+                }
+                $subjectpath = $basedefault . '/' . $subject;
+                if (!is_dir($subjectpath)) {
+                    continue;
+                }
+                $defaultpath = $subjectpath . '/default';
+                if (is_dir($defaultpath)) {
+                    $result[$subject] = ['default'];
                 }
             }
+        }
 
-            $result[$subject] = array_values(array_unique($topics));
+        $fs = get_file_storage();
+        $files = $fs->get_area_files($context->id, 'local_aiquizgenerator', 'examples', 0, 'filepath', false);
 
+        foreach ($files as $file) {
+            $fp = $file->get_filepath();
+            $parts = array_values(array_filter(explode('/', $fp)));
+
+            if (count($parts) < 3) {
+                continue;
+            }
+
+            $filelang = $parts[0];
+            $subject  = $parts[1];
+            $topic    = $parts[2];
+
+            if ($filelang !== $lang) {
+                continue;
+            }
+
+            if (!isset($result[$subject])) {
+                $result[$subject] = ['default'];
+            }
+            if (!in_array($topic, $result[$subject], true)) {
+                $result[$subject][] = $topic;
+            }
         }
         return $result;
     }

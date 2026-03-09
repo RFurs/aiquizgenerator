@@ -24,6 +24,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['actions'] = 'Actions';
 $string['aigenerationerror'] = 'Quiz generation failed. This might be due to:
 <ul>
     <li>The AI provider or "Generate text" action is disabled.</li>
@@ -38,20 +39,35 @@ $string['apply'] = 'Apply';
 $string['c'] = 'C';
 $string['category'] = 'Category';
 $string['cognitivedifficulty'] = 'Cognitive Difficulty';
+$string['confirm_delete_file'] = 'Delete this example file?';
+$string['confirm_delete_all'] = 'Delete all level files for this topic?';
 $string['comparch'] = 'Computer Architecture';
+$string['choosejson'] = 'Choose JSON file';
 $string['cpp'] = 'C++';
 $string['create'] = 'Create';
+$string['delete'] = 'Delete';
+$string['delete_all'] = 'Delete all';
 $string['dsa'] = 'Data Structures and Algorithms';
 $string['evaluate'] = 'Evaluate';
+$string['examples_deleted_all'] = 'Visi pavyzdžiai buvo sėkmingai pašalinti';
+$string['examplesfiles'] = 'Example JSON files';
 $string['examplesprefix'] = 'Example:';
+$string['examplesaved'] = 'Examples are saved.';
+$string['filedeleted'] = 'File was deleted sucessfully';
 $string['generatedsuccessfully'] = 'Moodle quiz was generated successfully';
 $string['generatequiz'] = 'Generate Quiz';
 $string['importfailed'] = 'Quiz importing failed supposedly due to invalid XML structure. Please try again.';
+$string['invalidjsonuploaded'] = 'Uploaded file does not contain valid JSON.';
 $string['invalidjsonresponse'] = 'The model generated an invalid JSON. Please try again.';
+$string['invalidjsonstructure'] = 'JSON failo struktūra neteisinga.';
 $string['java'] = 'Java';
 $string['jsonexamples'] = 'JSON Examples';
+$string['language'] = 'Language';
+$string['manageexamples'] = 'Manage Examples';
 $string['numberofquestions'] = 'Number Of Questions';
 $string['numofquestrestriction'] = 'This field allows numbers from 1 to 30';
+$string['nofileuploaded'] = 'No file uploaded';
+$string['nouploadedexamples'] = 'No uploaded example files found.';
 $string['pluginname'] = 'AI Quiz Generator';
 $string['prompt'] = 'Create a quiz about {$a->subject}. Topic: {$a->topic}. Number of questions: {$a->count}. Bloom taxonomy level: {$a->level}. Format: JSON. Generated questions should be of similar complexity and structure to provided ones in the example.';
 $string['questionbank'] = 'Question Bank';
@@ -59,8 +75,12 @@ $string['quizgenerator'] = 'Quiz Generator';
 $string['quizsubject'] = 'Quiz Subject';
 $string['quiztopic'] = 'Quiz Topic';
 $string['remember'] = 'Remember';
+$string['savechanges'] = 'Save';
 $string['topic'] = 'Topic';
 $string['topicisnotvalid'] = 'Topic can consist of letters and invisible characters only. The topic also cannot be default';
 $string['topicisrequired'] = 'Topic is required';
 $string['topicplaceholder'] = 'Pointers';
 $string['understand'] = 'Understand';
+$string['uploadedexamples'] = 'Uploaded examples';
+$string['view'] = 'View';
+$string['examples_deleted_all'] = 'All examples for this topic have been deleted.';
