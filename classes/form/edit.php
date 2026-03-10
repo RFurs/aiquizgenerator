@@ -85,7 +85,7 @@ class edit extends \moodleform {
             'topic',
             get_string('topicisnotvalid', 'local_aiquizgenerator'),
             'regex',
-            '/^(?!default$)[\p{L}]+([\s\p{L}]+)?$/u',
+            '/^[\p{L}0-9]+([\s\p{L}0-9]+)?$/u',
             'client'
         );
 
@@ -104,6 +104,14 @@ class edit extends \moodleform {
             get_string('numofquestrestriction', 'local_aiquizgenerator'),
             'regex',
             '/^([1-9]|[1-2][0-9]|30)$/',
+            'client'
+        );
+        
+        $mform->addRule(
+            'questioncount',
+            get_string('numofquestrequired', 'local_aiquizgenerator'),
+            'required',
+            null,
             'client'
         );
 
@@ -173,7 +181,7 @@ class edit extends \moodleform {
             [$jsonselect, $managebutton], 
             'examples_group', 
             get_string('jsonexamples', 'local_aiquizgenerator'), 
-            [' '], // Separator between elements
+            [' '],
             false
         );
 
@@ -195,7 +203,13 @@ class edit extends \moodleform {
                 $contexts[] = \context_module::instance($bank->modid);
             }
 
-            $context = !empty($contexts) ? $contexts[0] : \context_course::instance($courseid);
+            if(!empty($contexts)) {
+                $context = $contexts[0];
+            }
+
+            else {
+                throw new \moodle_exception('nomodulecontext', 'local_aiquizgenerator');
+            }
 
         } else {
 
@@ -210,8 +224,13 @@ class edit extends \moodleform {
             get_string('category', 'local_aiquizgenerator'),
             ['contexts' => $contexts]
         );
-        
+
         $defaultcategory = \question_get_default_category($context->id);
+
+        if(!$defaultcategory) {
+            throw new \moodle_exception('nodefaultcategory', 'local_aiquizgenerator');
+        }
+
         $mform->setDefault('category', $defaultcategory->id);
 
         $mform->addElement('hidden', 'courseid');
@@ -237,7 +256,7 @@ class edit extends \moodleform {
         $result = [];
 
         $currentlang = current_language();
-        $lang = ($currentlang === 'lt') ? 'lt' : 'en';
+        $lang = (substr($currentlang, 0, 2) === 'lt') ? 'lt' : 'en';
         $basedefault = $CFG->dirroot . '/local/aiquizgenerator/data/examples/' . $lang;
 
         if (is_dir($basedefault)) {

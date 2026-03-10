@@ -51,9 +51,16 @@ class examples_upload extends \moodleform {
         ];
         $mform->addElement('select', 'subject', get_string('quizsubject', 'local_aiquizgenerator'), $subjects);
 
-        $mform->addElement('text', 'topic', get_string('topic', 'local_aiquizgenerator'), ['size' => 50]);
-        $mform->setType('topic', PARAM_TEXT);
-        $mform->addRule('topic', get_string('required'), 'required', null, 'client'); // Pridėti privalomumą
+        $mform->addElement('text', 'examplesname', get_string('examplesname', 'local_aiquizgenerator'), ['size' => 50]);
+        $mform->setType('examplesname', PARAM_TEXT);
+        $mform->addRule('examplesname', get_string('examplesnamerequired', 'local_aiquizgenerator'), 'required', null, 'client');
+        $mform->addRule(
+            'examplesname',
+            get_string('examplesnameinvalid', 'local_aiquizgenerator'),
+            'regex',
+            '/^[\p{L}0-9]+([\s\p{L}0-9]+)?$/u',
+            'client'
+        );
 
         $fileoptions = [
             'subdirs' => 0,
@@ -61,7 +68,7 @@ class examples_upload extends \moodleform {
             'maxfiles' => 6,
             'accepted_types' => ['.json']
         ];
-        $mform->setType('topic', PARAM_TEXT);
+        $mform->setType('examplesname', PARAM_TEXT);
 
         $mform->addElement('filemanager', 'examplesfiles', get_string('examplesfiles', 'local_aiquizgenerator'), null, $fileoptions);
         $mform->addRule('examplesfiles', get_string('required'), 'required', null, 'client');

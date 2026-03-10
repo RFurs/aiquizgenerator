@@ -34,8 +34,8 @@ if ($data = $mform->get_data()) {
 
     $lang = $data->lang;
     $subject = $data->subject;
-    $topic = clean_param($data->topic, PARAM_FILE);
-    $filepath = "/{$lang}/{$subject}/{$topic}/";
+    $examplesname = clean_param($data->examplesname, PARAM_FILE);
+    $filepath = "/{$lang}/{$subject}/{$examplesname}/";
 
     $draftfiles = $fs->get_area_files($usercontext->id, 'user', 'draft', $draftitemid, 'id', false);
 
@@ -47,7 +47,8 @@ if ($data = $mform->get_data()) {
         foreach ($draftfiles as $draftfile) {
             $filename = $draftfile->get_filename();
             if (!in_array($filename, $allowed_names)) {
-                continue;
+                \core\notification::error(get_string('invalidfilename', 'local_aiquizgenerator'));
+                redirect(new moodle_url('/local/aiquizgenerator/examples.php', ['courseid' => $courseid]));
             }
 
             $existing = $fs->get_file($context->id, 'local_aiquizgenerator', 'examples', 0, $filepath, $filename);
@@ -103,7 +104,7 @@ foreach ($files as $file) {
         $flat_data[$key] = [
             'lang' => $l,
             'subject' => $s,
-            'topic' => $t,
+            'examplesname' => $t,
             'levels' => []
         ];
     }
@@ -127,11 +128,11 @@ echo html_writer::end_tag('div');
 
 $table = new flexible_table('local_aiquiz_examples');
 $table->define_baseurl($PAGE->url);
-$columns = ['lang', 'subject', 'topic', 'lvl1', 'lvl2', 'lvl3', 'lvl4', 'lvl5', 'lvl6', 'actions'];
+$columns = ['lang', 'subject', 'examplesname', 'lvl1', 'lvl2', 'lvl3', 'lvl4', 'lvl5', 'lvl6', 'actions'];
 $headers = [
     get_string('language', 'local_aiquizgenerator'),
     get_string('quizsubject', 'local_aiquizgenerator'),
-    get_string('topic', 'local_aiquizgenerator'),
+    get_string('examplesname', 'local_aiquizgenerator'),
     'Lvl 1', 'Lvl 2', 'Lvl 3', 'Lvl 4', 'Lvl 5', 'Lvl 6',
     get_string('actions', 'local_aiquizgenerator')
 ];
@@ -139,7 +140,7 @@ $headers = [
 $table->define_columns($columns);
 $table->define_headers($headers);
 
-$table->sortable(true, 'topic', SORT_ASC);
+$table->sortable(true, 'examplesname', SORT_ASC);
 $table->no_sorting('lvl1');
 $table->no_sorting('lvl2');
 $table->no_sorting('lvl3');
@@ -167,7 +168,7 @@ foreach ($flat_data as $row_data) {
     $row = [
         s($row_data['lang']),
         s($row_data['subject']),
-        s($row_data['topic'])
+        s($row_data['examplesname'])
     ];
 
     for ($i = 1; $i <= 6; $i++) {
@@ -182,7 +183,7 @@ foreach ($flat_data as $row_data) {
                 'courseid' => $courseid, 'filepath' => $file->get_filepath(), 'filename' => $file->get_filename(), 'sesskey' => sesskey()
             ]);
 
-            $links = html_writer::link($viewurl, get_string('view')) . '  ' .
+            $links = html_writer::link($viewurl, get_string('view', 'local_aiquizgenerator')) . '  ' .
                      html_writer::link($deleteurl, get_string('delete'), [
                          'class' => 'text-danger',
                          'onclick' => "return confirm('".get_string('confirm_delete_file', 'local_aiquizgenerator')."');"
@@ -194,7 +195,7 @@ foreach ($flat_data as $row_data) {
     }
 
     $deleteallurl = new moodle_url('/local/aiquizgenerator/delete_all_examples.php', [
-        'courseid' => $courseid, 'lang' => $row_data['lang'], 'subject' => $row_data['subject'], 'topic' => $row_data['topic'], 'sesskey' => sesskey()
+        'courseid' => $courseid, 'lang' => $row_data['lang'], 'subject' => $row_data['subject'], 'examplesname' => $row_data['examplesname'], 'sesskey' => sesskey()
     ]);
     $row[] = html_writer::link($deleteallurl, get_string('delete_all', 'local_aiquizgenerator'), [
         'class' => 'btn btn-outline-danger btn-sm',

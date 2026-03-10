@@ -6,7 +6,7 @@ require_sesskey();
 $courseid = required_param('courseid', PARAM_INT);
 $lang = required_param('lang', PARAM_ALPHA);
 $subject = required_param('subject', PARAM_TEXT);
-$topic = required_param('topic', PARAM_FILE);
+$topic = required_param('examplesname', PARAM_FILE);
 
 require_login();
 $context = context_course::instance($courseid);

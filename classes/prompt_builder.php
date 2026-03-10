@@ -60,7 +60,7 @@ class prompt_builder {
         global $CFG;
 
         $currentlang = \current_language();
-        $lang = ($currentlang === 'lt') ? 'lt' : 'en';
+        $lang = (substr($currentlang, 0, 2) === 'lt') ? 'lt' : 'en';
         $fs = get_file_storage();
 
         $subject = $data->subject;
