@@ -73,7 +73,7 @@ class prompt_builder {
             'apply'      => 'lvl3.json',
             'analyze'    => 'lvl4.json',
             'evaluate'   => 'lvl5.json',
-            'create'     => 'lvl6.json'
+            'create'     => 'lvl6.json',
         ];
 
         $filename = $levelmap[$level] ?? 'lvl1.json';
@@ -89,7 +89,7 @@ class prompt_builder {
         }
 
         $defaultpath = $CFG->dirroot . "/local/aiquizgenerator/data/examples/{$lang}/{$subject}/default/{$filename}";
-        
+
         if (file_exists($defaultpath)) {
             return file_get_contents($defaultpath);
         }

@@ -66,11 +66,18 @@ class examples_upload extends \moodleform {
             'subdirs' => 0,
             'maxbytes' => 0,
             'maxfiles' => 6,
-            'accepted_types' => ['.json']
+            'accepted_types' => ['.json'],
         ];
         $mform->setType('examplesname', PARAM_TEXT);
 
-        $mform->addElement('filemanager', 'examplesfiles', get_string('examplesfiles', 'local_aiquizgenerator'), null, $fileoptions);
+        $mform->addElement(
+            'filemanager',
+            'examplesfiles',
+            get_string('examplesfiles', 'local_aiquizgenerator'),
+            null,
+            $fileoptions
+        );
+
         $mform->addRule('examplesfiles', get_string('required'), 'required', null, 'client');
 
         $mform->addElement('hidden', 'courseid');

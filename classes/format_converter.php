@@ -79,7 +79,7 @@ class format_converter {
                 foreach ($q['answers'] as $ans) {
                     if ((float)$ans['fraction'] > 0) {
                         $correctanswers++;
-                    } elseif ((float)$ans['fraction'] < 0) {
+                    } else if ((float)$ans['fraction'] < 0) {
                         $penaltyanswers++;
                     }
                 }

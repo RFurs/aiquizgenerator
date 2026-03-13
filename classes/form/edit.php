@@ -106,7 +106,7 @@ class edit extends \moodleform {
             '/^([1-9]|[1-2][0-9]|30)$/',
             'client'
         );
-        
+
         $mform->addRule(
             'questioncount',
             get_string('numofquestrequired', 'local_aiquizgenerator'),
@@ -144,9 +144,8 @@ class edit extends \moodleform {
         );
 
         $alltopics = $this->get_all_example_topics();
-        $alltopics_json = json_encode($alltopics);
 
-        $whitelist = ['default' => 'default']; 
+        $whitelist = ['default' => 'default'];
         foreach ($alltopics as $subject => $topiclist) {
             foreach ($topiclist as $topic) {
                 $whitelist[$topic] = $topic;
@@ -168,32 +167,31 @@ class edit extends \moodleform {
 
         $examplesurl = new \moodle_url('/local/aiquizgenerator/examples.php', ['courseid' => $courseid]);
         $managebutton = $mform->createElement(
-            'static', 
-            'manageexamples', 
-            '', 
-            \html_writer::tag('a',
+            'static',
+            'manageexamples',
+            '',
+            \html_writer::tag(
+                'a',
                 get_string('manageexamples', 'local_aiquizgenerator'),
                 ['href' => $examplesurl->out(), 'class' => 'btn btn-secondary ml-2', 'role' => 'button']
             )
         );
 
         $mform->addGroup(
-            [$jsonselect, $managebutton], 
-            'examples_group', 
-            get_string('jsonexamples', 'local_aiquizgenerator'), 
+            [$jsonselect, $managebutton],
+            'examples_group',
+            get_string('jsonexamples', 'local_aiquizgenerator'),
             [' '],
             false
         );
 
         if ((int)$CFG->branch >= 500) {
+            $banks = \core_question\local\bank\question_bank_helper::get_activity_instances_with_shareable_questions(
+                incourseids: [$courseid],
+                havingcap: ['moodle/question:add'],
+            );
 
-            $banks = \core_question\local\bank\question_bank_helper::
-                get_activity_instances_with_shareable_questions(
-                    incourseids: [$courseid],
-                    havingcap: ['moodle/question:add'],
-                );
-
-            usort($banks, function($a, $b) {
+            usort($banks, function ($a, $b) {
                 return strcasecmp($a->name, $b->name);
             });
 
@@ -203,16 +201,12 @@ class edit extends \moodleform {
                 $contexts[] = \context_module::instance($bank->modid);
             }
 
-            if(!empty($contexts)) {
+            if (!empty($contexts)) {
                 $context = $contexts[0];
-            }
-
-            else {
+            } else {
                 throw new \moodle_exception('nomodulecontext', 'local_aiquizgenerator');
             }
-
         } else {
-
             $coursecontext = \context_course::instance($courseid);
             $questioncontexts = new \core_question\local\bank\question_edit_contexts($coursecontext);
             $contexts = $questioncontexts->all();
@@ -227,7 +221,7 @@ class edit extends \moodleform {
 
         $defaultcategory = \question_get_default_category($context->id);
 
-        if(!$defaultcategory) {
+        if (!$defaultcategory) {
             throw new \moodle_exception('nodefaultcategory', 'local_aiquizgenerator');
         }
 
@@ -245,9 +239,9 @@ class edit extends \moodleform {
 
 
     /**
-    * Builds a flat array containing default JSON output examples and user-defined JSON examples that are found in course filearea
-    * @return array Generated XML content.
-    */
+     * Builds a flat array containing default JSON output examples and user-defined JSON examples that are found in course filearea
+     * @return array Generated XML content.
+     */
     private function get_all_example_topics(): array {
         global $CFG;
         $courseid = $this->_customdata['courseid'];
