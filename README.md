@@ -113,9 +113,42 @@ Leidžiami failų pavadinimai:
 6lvl
 ```
 
-Žemiau pateikiama lentelė su anksčiau įkeltais pavyzdžiais, kur juos galima **peržiūrėti arba pašalinti**.
+Taip pat pateikiama lentelė su anksčiau įkeltais pavyzdžiais, kur juos galima **peržiūrėti arba pašalinti**.
 
 **Svarbu:** įkelti pavyzdžiai yra **susieti su kursu**, kuriame jie buvo išsaugoti. Kituose kursuose jie nebus matomi.
+
+JSON failo struktūra:
+
+```
+{
+	"questions": [
+		{
+			"name": "",
+			"questiontext": "",
+			"questiontype": "",
+			"code": "",
+			"answers": [
+				{
+					"text": "",
+					"fraction": 100
+				},
+				{
+					"text": "",
+					"fraction": 0
+				},
+				{
+					"text": "",
+					"fraction": 0
+				},
+				{
+					"text": "",
+					"fraction": 0
+				}
+			]
+		},
+    ]
+}
+```
 
 ---
 
@@ -253,6 +286,39 @@ A table below the form lists previously uploaded examples, which can be **previe
 
 **Important:** examples are **course-specific** and are only visible in the course where they were uploaded.
 
+JSON file structure:
+
+```
+{
+	"questions": [
+		{
+			"name": "",
+			"questiontext": "",
+			"questiontype": "",
+			"code": "",
+			"answers": [
+				{
+					"text": "",
+					"fraction": 100
+				},
+				{
+					"text": "",
+					"fraction": 0
+				},
+				{
+					"text": "",
+					"fraction": 0
+				},
+				{
+					"text": "",
+					"fraction": 0
+				}
+			]
+		},
+    ]
+}
+```
+
 ---
 
 ## Category
@@ -290,7 +356,3 @@ Here administrators can:
 - configure **usage limits**
 
 Currently Moodle does not support some providers such as **Anthropic (Claude)**.
-
-A plugin integrating **Google Gemini API** is available here:
-
-https://moodle.org/plugins/aiprovider_gemini
