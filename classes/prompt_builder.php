@@ -23,8 +23,6 @@
  */
 namespace local_aiquizgenerator;
 
-defined('MOODLE_INTERNAL') || die();
-
 /**
  * Class responsible for building a prompt and augmenting it with question examples
  */
@@ -34,7 +32,7 @@ class prompt_builder {
      * @param \stdClass $data The form data (subject, topic, questioncount, cognitive_difficulty)
      * @return string The fully constructed prompt
      */
-    public function build(\stdClass $data): string {
+    public function build(\stdClass $data): array {
         $a = new \stdClass();
         $a->subject   = $data->subject;
         $a->topic     = $data->topic;
@@ -43,12 +41,15 @@ class prompt_builder {
 
         $prompt = get_string('prompt', 'local_aiquizgenerator', $a);
 
-        $jsonexamples = $this->get_examples_json($data);
+        $examplesdata = $this->get_examples_json($data);
 
-        if (!empty($jsonexamples)) {
-            $prompt .= "\n\n" . get_string('examplesprefix', 'local_aiquizgenerator') . "\n" . $jsonexamples;
+        if (!empty($examplesdata)) {
+            $prompt .= "\n\n" . get_string('examplesprefix', 'local_aiquizgenerator') . "\n" . $examplesdata['content'];
         }
-        return $prompt;
+        return [
+            'prompt' => $prompt,
+            'examplesnotfound' => $examplesdata['examplesnotfound'],
+        ];
     }
 
     /**
@@ -56,7 +57,7 @@ class prompt_builder {
      * @param \stdClass $data
      * @return string|null JSON content or null if not found.
      */
-    protected function get_examples_json(\stdClass $data): ?string {
+    protected function get_examples_json(\stdClass $data): array {
         global $CFG;
 
         $currentlang = \current_language();
@@ -64,7 +65,7 @@ class prompt_builder {
         $fs = get_file_storage();
 
         $subject = $data->subject;
-        $topic = $data->jsonexamples;
+        $examplesname = $data->jsonexamples;
         $level = strtolower($data->cognitive_difficulty);
 
         $levelmap = [
@@ -78,22 +79,34 @@ class prompt_builder {
 
         $filename = $levelmap[$level] ?? 'lvl1.json';
 
-        if ($topic !== 'default') {
-            $coursecontext = \context_course::instance($data->courseid ?? SITEID);
-            $filepath = "/{$lang}/{$subject}/{$topic}/";
-            $file = $fs->get_file($coursecontext->id, 'local_aiquizgenerator', 'examples', 0, $filepath, $filename);
+        $coursecontext = \context_course::instance($data->courseid ?? SITEID);
+        $filepath = "/{$lang}/{$subject}/{$examplesname}/";
+        $file = $fs->get_file($coursecontext->id, 'local_aiquizgenerator', 'examples', 0, $filepath, $filename);
 
-            if ($file) {
-                return $file->get_content();
-            }
+        if ($file) {
+            return [
+                'content' => $file->get_content(),
+                'examplesnotfound' => false,
+            ];
         }
 
         $defaultpath = $CFG->dirroot . "/local/aiquizgenerator/data/examples/{$lang}/{$subject}/default/{$filename}";
 
-        if (file_exists($defaultpath)) {
-            return file_get_contents($defaultpath);
+        if ($examplesname === 'default' && file_exists($defaultpath)) {
+            return [
+                'content' => file_get_contents($defaultpath),
+                'examplesnotfound' => false,
+            ];
+        } else if (file_exists($defaultpath)) {
+            return [
+                'content' => file_get_contents($defaultpath),
+                'examplesnotfound' => true,
+            ];
         }
 
-        return null;
+        return [
+            'content' => null,
+            'examplesnotfound' => false,
+        ];
     }
 }

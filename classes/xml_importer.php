@@ -23,8 +23,6 @@
  */
 namespace local_aiquizgenerator;
 
-defined('MOODLE_INTERNAL') || die();
-
 /**
  * Class responsible for importing XML content into question bank
  */

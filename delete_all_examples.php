@@ -29,7 +29,7 @@ require_sesskey();
 $courseid = required_param('courseid', PARAM_INT);
 $lang = required_param('lang', PARAM_ALPHA);
 $subject = required_param('subject', PARAM_TEXT);
-$topic = required_param('examplesname', PARAM_FILE);
+$examplesname = required_param('examplesname', PARAM_FILE);
 
 require_login();
 $context = context_course::instance($courseid);
@@ -37,7 +37,7 @@ require_capability('moodle/course:manageactivities', $context);
 
 $fs = get_file_storage();
 
-$filepath = '/' . $lang . '/' . $subject . '/' . $topic . '/';
+$filepath = '/' . $lang . '/' . $subject . '/' . $examplesname . '/';
 
 $files = $fs->get_directory_files($context->id, 'local_aiquizgenerator', 'examples', 0, $filepath);
 

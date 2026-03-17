@@ -23,8 +23,6 @@
  */
 namespace local_aiquizgenerator;
 
-defined('MOODLE_INTERNAL') || die();
-
 /**
  * Class responsible for converting JSON to Moodle XML
  */

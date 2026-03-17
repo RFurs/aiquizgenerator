@@ -24,8 +24,6 @@
 
 require('../../config.php');
 
-defined('MOODLE_INTERNAL') || die();
-
 $courseid = required_param('courseid', PARAM_INT);
 
 $course = get_course($courseid);
@@ -67,13 +65,22 @@ if ($data = $mform->get_data()) {
         $formatconverter = new \local_aiquizgenerator\format_converter();
         $importer = new \local_aiquizgenerator\xml_importer();
 
-        $jsoncontent = $generator->generate_quiz($data, $context->id);
+        $result = $generator->generate_quiz($data, $context->id);
+        $jsoncontent = $result['content'];
+        $examplesnotfound = $result['examplesnotfound'];
+
         $xmlcontent = $formatconverter->convert_json_to_xml($jsoncontent);
         $importer->import_to_question_bank($xmlcontent, $courseid, $data->category);
 
         $message = get_string('generatedsuccessfully', 'local_aiquizgenerator');
-        $selfurl = new moodle_url('/local/aiquizgenerator/index.php', ['courseid' => $courseid]);
 
+        if ($examplesnotfound) {
+            \core\notification::add(
+                get_string('examplesnotfound', 'local_aiquizgenerator'),
+                \core\output\notification::NOTIFY_INFO,
+            );
+        }
+        $selfurl = new moodle_url('/local/aiquizgenerator/index.php', ['courseid' => $courseid]);
         redirect($selfurl, $message, null, \core\output\notification::NOTIFY_SUCCESS);
     } catch (\Exception $e) {
         \core\notification::error($e->getMessage());

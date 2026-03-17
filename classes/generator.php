@@ -23,8 +23,6 @@
  */
 namespace local_aiquizgenerator;
 
-defined('MOODLE_INTERNAL') || die();
-
 use core_ai\manager;
 use core_ai\aiactions\generate_text;
 
@@ -40,11 +38,13 @@ class generator {
      * @return string Sugeneruotas tekstas.
      * @throws \moodle_exception
      */
-    public function generate_quiz(\stdClass $data, int $contextid): string {
+    public function generate_quiz(\stdClass $data, int $contextid): array {
         global $USER;
 
         $promptbuilder = new prompt_builder();
-        $prompt = $promptbuilder->build($data);
+        $promptdata = $promptbuilder->build($data);
+
+        $prompt = $promptdata['prompt'];
 
         $action = new \core_ai\aiactions\generate_text(
             contextid: $contextid,
@@ -59,7 +59,10 @@ class generator {
             throw new \moodle_exception('aigenerationerror', 'local_aiquizgenerator', '', $response->get_errormessage());
         }
 
-        return $this->cleanup_response($response->get_response_data()['generatedcontent'] ?? '');
+        return [
+            'content' => $this->cleanup_response($response->get_response_data()['generatedcontent'] ?? ''),
+            'examplesnotfound' => $promptdata['examplesnotfound'],
+        ];
     }
 
     /**
