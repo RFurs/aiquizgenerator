@@ -30,7 +30,7 @@ class prompt_builder {
     /**
      * Function building a prompt using data received from form.
      * @param \stdClass $data The form data (subject, topic, questioncount, cognitive_difficulty)
-     * @return string The fully constructed prompt
+     * @return array The fully constructed prompt and flag used for determining whether default examples were used
      */
     public function build(\stdClass $data): array {
         $a = new \stdClass();

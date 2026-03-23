@@ -33,9 +33,9 @@ class generator {
     /**
      * Generates a quiz using AI subsystem
      *
-     * @param \stdClass $data Formos duomenys.
-     * @param int $contextid Kurso konteksto ID.
-     * @return string Sugeneruotas tekstas.
+     * @param \stdClass $data Form data.
+     * @param int $contextid Course context ID.
+     * @return array The fully constructed prompt and flag used for determining whether default examples were used
      * @throws \moodle_exception
      */
     public function generate_quiz(\stdClass $data, int $contextid): array {
@@ -59,8 +59,14 @@ class generator {
             throw new \moodle_exception('aigenerationerror', 'local_aiquizgenerator', '', $response->get_errormessage());
         }
 
+        $llmoutput = cleanup_response($response->get_response_data()['generatedcontent'] ?? '');
+
+        if ($llmoutput === null || !isset($llmoutput['evaluations'])) {
+            throw new \moodle_exception('invalidjson', 'qbank_llmjudge');
+        }
+
         return [
-            'content' => $this->cleanup_response($response->get_response_data()['generatedcontent'] ?? ''),
+            'content' => $llmoutput,
             'examplesnotfound' => $promptdata['examplesnotfound'],
         ];
     }
