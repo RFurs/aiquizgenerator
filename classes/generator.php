@@ -59,9 +59,9 @@ class generator {
             throw new \moodle_exception('aigenerationerror', 'local_aiquizgenerator', '', $response->get_errormessage());
         }
 
-        $llmoutput = cleanup_response($response->get_response_data()['generatedcontent'] ?? '');
+        $llmoutput = $this->cleanup_response($response->get_response_data()['generatedcontent'] ?? '');
 
-        if ($llmoutput === null || !isset($llmoutput['evaluations'])) {
+        if (empty($llmoutput)) {
             throw new \moodle_exception('invalidjson', 'qbank_llmjudge');
         }
 
