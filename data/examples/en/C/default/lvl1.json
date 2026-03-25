@@ -2,7 +2,7 @@
 	"questions": [
 		{
 			"name": "C - Functions: default return type",
-			"questiontext": "What is the default return data type of a function in the C programming language",
+			"questiontext": "What is the default return data type of a function in the C programming language?",
 			"questiontype": "multichoice",
 			"code": "",
 			"answers": [
