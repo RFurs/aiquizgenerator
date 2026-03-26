@@ -55,7 +55,7 @@ class prompt_builder {
     /**
      * Locates and reads the appropriate JSON example file based on language, subject, topic, and level.
      * @param \stdClass $data
-     * @return string|null JSON content or null if not found.
+     * @return array JSON content and flag used for determining whether default examples were used.
      */
     protected function get_examples_json(\stdClass $data): array {
         global $CFG;
