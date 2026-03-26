@@ -40,6 +40,11 @@ class xml_importer {
         require_once($CFG->dirroot . '/question/format/xml/format.php');
         require_once($CFG->libdir . '/questionlib.php');
 
+        if (!empty($categoryid) && strpos($categoryid, ',') !== false) {
+            [$categoryid, $contextid] = explode(',', $categoryid);
+        }
+        $categoryid = (int)$categoryid;
+
         if ($categoryid === 0) {
             $contexts = new \core_question\local\bank\question_edit_contexts(\context_course::instance($courseid));
             $category = question_get_default_category($contexts->lowest()->id);
