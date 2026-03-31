@@ -58,7 +58,7 @@ class examples_upload extends \moodleform {
             'examplesname',
             get_string('examplesnameinvalid', 'local_aiquizgenerator'),
             'regex',
-            '/^[\p{L}0-9]+([\s\p{L}0-9]+)?$/u',
+            '/^(?!^default$)[\p{L}0-9]+([\s\p{L}0-9]+)?$/u',
             'client'
         );
 
