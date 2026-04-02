@@ -64,7 +64,7 @@ class examples_upload extends \moodleform {
 
         $fileoptions = [
             'subdirs' => 0,
-            'maxbytes' => 0,
+            'maxbytes' => 1024 * 1024,
             'maxfiles' => 6,
             'accepted_types' => ['.json'],
         ];
