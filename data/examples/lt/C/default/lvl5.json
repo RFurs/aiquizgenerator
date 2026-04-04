@@ -2,14 +2,14 @@
   "questions": [
     {
       "name": "C - Funkcijos: Saugus dalijimas",
-      "questiontext": "Apsvarstykite žemiau pateiktą C funkciją. Įvertinkite šią funkciją pagal teisingumą ir patikimumą. Pasiūlykite modifikaciją ir pagrįskite ją.",
+      "questiontext": "Apsvarstykite žemiau pateiktą C funkciją. Įvertinkite šią funkciją pagal taisyklingumą ir patikimumą. Pasiūlykite modifikaciją ir pagrįskite ją.",
       "questiontype": "essay",
       "code": "#include <stdio.h>\n\nfloat average(int a, int b) {\n    return (float)(a + b) / (a - b);\n}\n\nint main() {\n    int x = 5, y = 5;\n    printf(\"Vidurkis: %.2f\\n\", average(x, y));\n    return 0;\n}",
       "answers": []
     },
     {
       "name": "C - Funkcijos:  Begalinis rekursija",
-      "questiontext": "Apsvarstykite žemiau pateiktą C funkciją. Įvertinkite šią funkciją pagal teisingumą ir patikimumą. Pasiūlykite modifikaciją ir pagrįskite ją.",
+      "questiontext": "Apsvarstykite žemiau pateiktą C funkciją. Įvertinkite šią funkciją pagal taisyklingumą ir patikimumą. Pasiūlykite modifikaciją ir pagrįskite ją.",
       "questiontype": "essay",
       "code": "#include <stdio.h>\n\nint sum(int n) {\n    return n + sum(n - 1);\n}\n\nint main() {\n    int num = 5;\n    printf(\"Suma: %d\\n\", sum(num));\n    return 0;\n}",
       "answers": []
