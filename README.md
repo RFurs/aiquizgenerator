@@ -105,12 +105,12 @@ Formoje yra veiksmas **„Tvarkyti pavyzdžius“**, kuris atidaro kitą puslap�
 Leidžiami failų pavadinimai:
 
 ```
-1lvl
-2lvl
-3lvl
-4lvl
-5lvl
-6lvl
+lvl1
+lvl2
+lvl3
+lvl4
+lvl5
+lvl6
 ```
 
 Taip pat pateikiama lentelė su anksčiau įkeltais pavyzdžiais, kur juos galima **peržiūrėti arba pašalinti**.
@@ -123,25 +123,25 @@ JSON failo struktūra:
 {
 	"questions": [
 		{
-			"name": "",
-			"questiontext": "",
-			"questiontype": "",
-			"code": "",
+			"name": "<klausimo pavadinimas>",
+			"questiontext": "<klausimo tekstas>",
+			"questiontype": "<multichoice | shortanswer | essay>",
+			"code": "<kodo sakiniai>",
 			"answers": [
 				{
-					"text": "",
+					"text": "<atsakymo tekstas>",
 					"fraction": 100
 				},
 				{
-					"text": "",
+					"text": "<atsakymo tekstas>",
 					"fraction": 0
 				},
 				{
-					"text": "",
+					"text": "<atsakymo tekstas>",
 					"fraction": 0
 				},
 				{
-					"text": "",
+					"text": "<atsakymo tekstas>",
 					"fraction": 0
 				}
 			]
@@ -156,7 +156,7 @@ JSON failo struktūra:
 
 Galima pasirinkti **klausimų kategoriją**, į kurią bus importuojami sugeneruoti klausimai.
 
-**Svarbu:** prieš naudojant plėtinį kurse turi būti sukurta bent viena klausimų kategorija, kitaip plėtinys neveiks.
+**Svarbu:** prieš naudojant plėtinį kurse turi būti sukurta bent viena klausimų kategorija.
 
 ---
 
@@ -292,25 +292,25 @@ JSON file structure:
 {
 	"questions": [
 		{
-			"name": "",
-			"questiontext": "",
-			"questiontype": "",
-			"code": "",
+			"name": "<name of the question>",
+			"questiontext": "<question text>",
+			"questiontype": "<multichoice | shortanswer | essay>",
+			"code": "<lines of code>",
 			"answers": [
 				{
-					"text": "",
+					"text": "<answer text>",
 					"fraction": 100
 				},
 				{
-					"text": "",
+					"text": "<answer text>",
 					"fraction": 0
 				},
 				{
-					"text": "",
+					"text": "<answer text>",
 					"fraction": 0
 				},
 				{
-					"text": "",
+					"text": "<answer text>",
 					"fraction": 0
 				}
 			]
