@@ -274,12 +274,12 @@ The **"Manage examples"** action opens a form where users can:
 Allowed file names:
 
 ```
-1lvl
-2lvl
-3lvl
-4lvl
-5lvl
-6lvl
+lvl1
+lvl2
+lvl3
+lvl4
+lvl5
+lvl6
 ```
 
 A table below the form lists previously uploaded examples, which can be **previewed or removed**.
