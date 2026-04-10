@@ -175,7 +175,7 @@ Mano kursai → Kursas → Daugiau → Viktorinos generatorius
 Plėtinį galima įdiegti nukopijuojant jį į:
 
 ```
-server/moodle/local
+server/moodle/local/aiquizgenerator
 ```
 
 Atnaujinus Moodle puslapį, automatiškai bus paleistas plėtinio diegimo procesas.
@@ -334,7 +334,7 @@ Users must select the **question category** where generated questions will be im
 Copy the plugin into:
 
 ```
-server/moodle/local
+server/moodle/local/aiquizgenerator
 ```
 
 After refreshing the page, Moodle will automatically start the plugin installation process.
