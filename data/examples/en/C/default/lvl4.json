@@ -13,13 +13,13 @@
       ]
     },
     {
-      "name": "C - Functions: Recursive function output",
-      "questiontext": "Inspect the code provided below. What's the program's output?",
+      "name": "C - Pointers: function pointers",
+      "questiontext": "Analyze the code below and determine its output.",
       "questiontype": "shortanswer",
-	  "code": "#include <stdio.h>\n\nint func(int x) {\n    if (x <= 0) return 0;\n    if (x == 1) return 1;\n    return func(x - 2) + func(x - 1);\n}\n\nint main() {\n    printf(\"%d\", func(4));\n    return 0;\n}",
+      "code": "#include <stdio.h>\n\nvoid f1(int n) {\n    if (n <= 0) return;\n    printf(\"%d \", n);\n}\n\nvoid f2(int n) {\n    if (n <= 0) return;\n    printf(\"%d \", n - 1);\n}\n\nvoid run(void (*func)(int), int n) {\n    func(n);\n    if (n > 1)\n        run(func == f1 ? f2 : f1, n - 1);\n}\n\nint main() {\n    void (*p)(int) = f1;\n    run(p, 5);\n    return 0;\n}",
       "answers": [
         {
-          "text": "3",
+          "text": "5 3 3 1 1",
           "fraction": 100
         }
       ]
