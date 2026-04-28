@@ -1,17 +1,17 @@
 {
   "questions": [
     {
-      "name": "C - Functions: Safe division",
-      "questiontext": "Consider the C function provided below. Evaluate this function in terms of correctness and reliability. Propose a modification and justify it.",
+      "name": "C - Functions: Fibonacci Sum",
+      "questiontext": "Evaluate the program below in terms of safety and reliability. Propose modifications to the program and justify them.",
       "questiontype": "essay",
-      "code": "#include <stdio.h>\n\nfloat average(int a, int b) {\n    return (float)(a + b) / (a - b);\n}\n\nint main() {\n    int x = 5, y = 5;\n    printf(\"Average: %.2f\\n\", average(x, y));\n    return 0;\n}",
+      "code": "#include <stdio.h>\n\nint fib(int n) { \n    if (n <= 1) return n;\n    return fib(n - 1) + fib(n - 2);\n}\n\nint sumFib(int n) { \n    int sum = 0; \n    for (int i = 0; i <= n; i++) {\n        sum += fib(i);\n    }\n    return sum;\n}\n\nint main() {\n    int n;\n    printf(\"Enter n: \");\n    scanf(\"%d\", &n);\n\n    printf(\"Sum: %lld\\n\", sumFib(n));\n    return 0;\n}",
       "answers": []
     },
     {
-      "name": "C - Functions: Infinite recursion",
-      "questiontext": "Consider the C function provided below. Evaluate this function in terms of correctness and reliability. Propose a modification and justify it.",
+      "name": "C - Files: Average Calculation",
+      "questiontext": "Evaluate the program below in terms of correctness and reliability. Propose modifications to the program and justify them.",
       "questiontype": "essay",
-	  "code": "#include <stdio.h>\n\nint sum(int n) {\n    return n + sum(n - 1);\n}\n\nint main() {\n    int num = 5;\n    printf(\"Suma: %d\\n\", sum(num));\n    return 0;\n}",
+      "code": "#include <stdio.h>\n#include <stdlib.h>\n\ndouble readAndFindAverage(const char *filename) { \n    FILE *f = fopen(filename, \"r\");\n\n    int x;\n    int sum = 0;\n    int count = 0;\n\n    while (!feof(f)) {\n        fscanf(f, \"%d\", &x);\n        sum += x;\n        count++;\n    }\n\n    fclose(f);\n    return sum / count;\n}\n\nint main() {\n    char filename[100];\n    printf(\"File name: \");\n    scanf(\"%s\", filename);\n\n    double avg = readAndFindAverage(filename); \n    printf(\"Average: %.2f\\n\", avg);\n\n    return 0;\n}",
       "answers": []
     }
   ]
